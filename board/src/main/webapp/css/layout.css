@@ -70,10 +70,10 @@ textarea {
   
 .box_title { /* 제목 */
 	width:100%;
-	padding:1px;
 }
 .box_name {
 	width:150px;
+	text-align: left;
 }
 
 .row:after { /* footer 가 밑에 위치하도록 여백을 추가해준다.*/

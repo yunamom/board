@@ -8,7 +8,6 @@
 	<link rel="stylesheet" href="../css/layout.css">
 </head>
 <body>
-<div class="wrap">
 	<header>
 		<div class="header">
 		</div>
@@ -47,7 +46,6 @@
 	<footer>
 		<%@ include file="../include/footer.jsp" %>
 	</footer>
-</div>
 </body>
 </html>
 </html>
