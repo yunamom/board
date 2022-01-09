@@ -1,0 +1,73 @@
+@charset "UTF-8";
+* {
+	box-sizing:border-box;
+}
+
+body {
+	padding: 5px;
+	font-family: Gulim;
+	background: #eee;
+	text-align: center;
+}
+
+.header {
+	padding: 10px;
+	height : 100px;
+	text-align: center;
+	background: white;
+}
+
+.nav {
+	overflow: hidden;
+	padding: 0.5rem 0.5rem;
+	background-color: #F3D8CB;
+}
+
+.nav a {
+	align: center;
+	color: #ffffff;
+	text-align: center;
+	margin: 1.5rem;
+	text-decoration: none;
+}
+
+.right {
+	float: left;
+	width: 70%;
+	color: #777777;
+}
+
+.left {
+	float: left;
+	width: 20%;
+	height: 700px;
+	background-color: #FAF3E0;
+	padding-left: 10px;
+}
+
+.fakeimg {
+	background-color: #aaa;
+	width: 100%;
+	padding: 20px;
+}
+
+table {
+	width: 600px;
+	border: 1px solid #777777;
+	border-collapse:collapse;
+}
+td,th {
+	border: 1px solid #777777;
+}
+
+.row:after { /* footer 가 밑에 위치하도록 여백을 추가해준다.*/
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.footer {
+	padding: 10px;
+	text-align: center;
+	background: white;
+}
