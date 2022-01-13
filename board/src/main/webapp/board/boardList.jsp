@@ -4,8 +4,19 @@
 <%@ include file="../include/dbCon.jsp" %>
 
 <%
-String sql = " SELECT unq,title,name,date_format(rdate,'%Y-%m-%d') rdate,hits ";
-	   sql+= " FROM board ORDER BY unq DESC ";
+String cnt = " SELECT count(*) total FROM board";
+ResultSet rsCnt = stmt.executeQuery(cnt);
+rsCnt.next(); //게시물 총갯수
+int total = rsCnt.getInt("total");
+
+String sql = " SELECT unq,";
+		sql+=" title,";
+		sql+=" name,";
+		sql+=" date_format(rdate,'%Y-%m-%d') rdate,"; 
+		// left(rdate,10), substring(1,10)
+		sql+=" hits ";
+		sql+=" FROM board ";
+		sql+=" ORDER BY unq DESC ";
 	   
 ResultSet rs = stmt.executeQuery(sql);
 %>
@@ -30,9 +41,13 @@ ResultSet rs = stmt.executeQuery(sql);
 	</aside>
 	<section>
 		<div class="row">
-			<div class="right">
-				<h2> 게시판 목록 </h2>
+			<div class="right">	
 					<table align="center">
+					<h2> 게시판 목록 </h2>	
+					<td style="text-align:left; border:0px; font-size:12px" colspan="4">
+					총 게시물 갯수 : <%=total%> 개</td>
+					<td style="text-align:right; border:0px;">
+					<button type="button" onclick="location='boardWrite.jsp'">글쓰기</button></td>
 					<tr>
 						<th>번호</th>
 						<th>제목</th>
@@ -40,21 +55,21 @@ ResultSet rs = stmt.executeQuery(sql);
 						<th>날짜</th>
 						<th>조회수</th>
 					</tr>
-				<%while(rs.next()){
-					String unq = rs.getString("unq");
+				<%while(rs.next()){		
 					String title = rs.getString("title");
 					String name = rs.getString("name");
 					String rdate = rs.getString("rdate");
-					String hits = rs.getString("hits");
+					String hits = rs.getString("hits");	
 				%>
 					<tr>
-						<td><%=unq %></td>
+						<td><%=total%></td>
 						<td><%=title %></td>
 						<td><%=name %></td>
 						<td><%=rdate %></td>
 						<td><%=hits %></td>
 					</tr>
-				<%}%>	
+				<%	total--;
+				}%>	
 					</table>			
 				</div>
 			</div>

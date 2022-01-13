@@ -72,7 +72,7 @@ function fn_onload() {
 						</tr>
 						<tr>
 							<th>암호</th>
-							<td class="box_name"><input type="text" name="pass" required></td>
+							<td class="box_name"><input type="password" name="pass" required></td>
 						</tr>
 						<tr>
 							<th>이름</th>
@@ -81,7 +81,7 @@ function fn_onload() {
 						<tr>
 							<th>내용</th>
 							<td>
-							<textarea name="content"></textarea>
+							<textarea name="content" placeholder="내용을 입력하세요."></textarea>
 							<!-- rows 세로 cols 가로 -->
 							</td>
 						</tr>

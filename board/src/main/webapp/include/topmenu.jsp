@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%
+//log 기록을 가져와서 로그인한 회원은 회원가입,로그인 메뉴를 없애고 로그아웃을보여준다.
+
+
+%>
 <!DOCTYPE html>
 <html>
 <head>

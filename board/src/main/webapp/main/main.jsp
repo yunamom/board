@@ -22,7 +22,7 @@
 	<section>
 		<div class="row">
 			<div class="right">
-				<h2>test</h2>
+				<h2>메인화면</h2>
 					<table align="center">			
 						<th>번호</th>
 						<th>제목</th>

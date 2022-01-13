@@ -6,7 +6,6 @@
 body {
 	padding: 5px;
 	font-family: Gulim;
-	background: #eee;
 	text-align: center;
 }
 
@@ -14,7 +13,7 @@ body {
 	padding: 10px;
 	height : 100px;
 	text-align: center;
-	background: white;
+	background: #FAF3E0;
 }
 
 .nav {
@@ -35,6 +34,7 @@ body {
 	float: left;
 	width: 70%;
 	color: #777777;
+	padding-left: 10px;
 }
 
 .left {
@@ -45,19 +45,15 @@ body {
 	padding-left: 10px;
 }
 
-.fakeimg {
-	background-color: #aaa;
-	width: 100%;
-	padding: 20px;
-}
-
 table {
-	width: 550px;
-	border: 1px solid #777777;
+	float: center;
+	width: 650px;
 	border-collapse:collapse;
 }
 td,th {
 	border: 1px solid #777777;
+	padding-top: 0.2rem;
+	padding-bottom: 0.2rem;
 }
 
 textarea {
@@ -75,7 +71,10 @@ textarea {
 	width:150px;
 	text-align: left;
 }
-
+.row {
+	padding-top: 20px;
+	background-color: #FAFAFA;
+}
 .row:after { /* footer 가 밑에 위치하도록 여백을 추가해준다.*/
 	content: "";
 	display: table;
