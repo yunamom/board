@@ -1,51 +1,25 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>메인</title>
-	<link rel="stylesheet" href="../css/layout.css">
+<title>main</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="../css/layout.css">
 </head>
 <body>
-	<header>
-		<div class="header">
-		</div>
-	</header>
-	<nav>
-		<%@ include file="../include/topmenu.jsp" %>
-		
-	</nav>
-	<aside>
-		<%@ include file="../include/leftmenu.jsp" %>
-	</aside>
-	<section>
-		<div class="row">
-			<div class="right">
-				<h2>메인화면</h2>
-					<table align="center">			
-						<th>번호</th>
-						<th>제목</th>
-						<th>날짜</th>
-					
-					<tr>
-						<td>test</td>
-						<td>test</td>
-						<td>test</td>
-					</tr>
-					<tr>
-						<td>test</td>
-						<td>test</td>
-						<td>test</td>
-					</tr>
-					</table>			
-				</div>
-			</div>
-		</div>
-	</section>
-	<footer>
-		<%@ include file="../include/footer.jsp" %>
-	</footer>
+<%@ include file="../include/topmenu.jsp" %>
+<div class="row">
+  <%@ include file="../include/leftmenu.jsp" %>
+  <div class="column middle">
+    <h2>JavaServer Pages (JSP)</h2>
+    <p>The real test is not whether you avoid this failure,
+    because you won't. It's whether you let it harden or shame you into inaction,
+    or whether you learn from it; whether you choose to persevere. -Barack Obama</p>
+    
+  </div> 
+</div>
+<div class="footer">
+  <p>by yunamom</p>
+</div>
 </body>
-</html>
 </html>

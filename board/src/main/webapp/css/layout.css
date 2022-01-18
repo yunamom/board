@@ -1,88 +1,106 @@
 @charset "UTF-8";
+
 * {
-	box-sizing:border-box;
+    box-sizing: border-box;
 }
-
 body {
-	padding: 5px;
-	font-family: Gulim;
-	text-align: center;
+    margin: 0 auto;
+    font-family: gulim;
+    max-width: 70rem;
 }
-
+/* Style the header */
 .header {
+    background-color: #f1f1f1;
+    padding: 20px;
+    text-align: center;
+    color: #454545;
+}
+/* Style the top navigation bar */
+.topnav {
+    overflow: hidden;
+    background-color: #9c6071;
+}
+/* Style the topnav links */
+.topnav a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+/* Change color on hover */
+.topnav a:hover {
+    background-color: #ddd;
+    color: #454545;
+}
+/* Create three unequal columns that floats next to each other */
+.column {
+    float: left;
+    padding: 10px;
+}
+/* Left and right column */
+.column.side {
+    width: 25%;
+}
+/* Middle column */
+.column.middle {
+    width: 75%;   
+}
+/* 테이블 세팅 */
+.table {
+	border-collapse: collapse;
+	border-top: 3px solid #9c6071;
+	margin: 0 auto;
+}
+.table th {
+	color: #9c6071;
+	background: #f1f1f1;
+	text-align: center;
+}
+.table th, .table td {
 	padding: 10px;
-	height : 100px;
+	border: 1px solid #ddd;
+}
+.table th:first-child, .table td:first-cilde {
+	border-left: 0;
+}
+.table th:last-child, .table td:last-child {
+	border-right: 0;
+}
+.table tr td:first-child{
 	text-align: center;
-	background: #FAF3E0;
+}
+.table caption{
+	caption-side: bottom;
+	display: none;
 }
 
-.nav {
-	overflow: hidden;
-	padding: 0.5rem 0.5rem;
-	background-color: #F3D8CB;
-}
-
-.nav a {
-	align: center;
-	color: #ffffff;
-	text-align: center;
-	margin: 1.5rem;
-	text-decoration: none;
-}
-
-.right {
-	float: left;
-	width: 70%;
-	color: #777777;
-	padding-left: 10px;
-}
-
-.left {
-	float: left;
-	width: 20%;
-	height: 700px;
-	background-color: #FAF3E0;
-	padding-left: 10px;
-}
-
-table {
-	float: center;
-	width: 650px;
-	border-collapse:collapse;
-}
-td,th {
-	border: 1px solid #777777;
-	padding-top: 0.2rem;
-	padding-bottom: 0.2rem;
-}
-
-textarea {
-  	width: 100%;
-    height: 7rem;
-    padding:1px;
-    border: none;
-    resize: none;
-}
-  
-.box_title { /* 제목 */
-	width:100%;
-}
-.box_name {
-	width:150px;
-	text-align: left;
-}
 .row {
-	padding-top: 20px;
-	background-color: #FAFAFA;
-}
-.row:after { /* footer 가 밑에 위치하도록 여백을 추가해준다.*/
-	content: "";
-	display: table;
-	clear: both;
-}
-
-.footer {
-	padding: 10px;
+	width: 100%;
+	height: 100%;
 	text-align: center;
-	background: #F3D8CB;
+	color: #454545;
+}
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+    .column.side, .column.middle {
+        width: 100%;
+    }
+}
+/* Style the footer */
+.footer {
+    position: fixed;
+	bottom: 0px;
+	width: 100%;
+	color: #454545;
+    background-color: #f1f1f1;
+    padding: 5px;
+    text-align: center;
 }
