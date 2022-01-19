@@ -81,5 +81,8 @@ function fn_onload() {
 		</div>
 	</form>	
 </div>
+<div class="footer">
+<p>by yunamom</p>
+</div>
 </body>
 </html>

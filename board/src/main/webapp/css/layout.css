@@ -4,9 +4,8 @@
     box-sizing: border-box;
 }
 body {
-    margin: 0 auto;
+    margin: 0;
     font-family: gulim;
-    max-width: 70rem;
 }
 /* Style the header */
 .header {
@@ -14,6 +13,7 @@ body {
     padding: 20px;
     text-align: center;
     color: #454545;
+    font-size: 20px;
 }
 /* Style the top navigation bar */
 .topnav {
@@ -47,8 +47,10 @@ body {
 .column.middle {
     width: 75%;   
 }
+
 /* 테이블 세팅 */
 .table {
+	overflow: hidden;
 	border-collapse: collapse;
 	border-top: 3px solid #9c6071;
 	margin: 0 auto;
@@ -62,7 +64,7 @@ body {
 	padding: 10px;
 	border: 1px solid #ddd;
 }
-.table th:first-child, .table td:first-cilde {
+.table th:first-child, .table td:first-child {
 	border-left: 0;
 }
 .table th:last-child, .table td:last-child {
@@ -75,12 +77,20 @@ body {
 	caption-side: bottom;
 	display: none;
 }
-
+.table a{
+	text-decoration: none;
+	color: #454545;
+}
+.table a:hover {
+    background-color: #ddd;
+    color: #454545;
+}
 .row {
 	width: 100%;
 	height: 100%;
 	text-align: center;
 	color: #454545;
+	overflow: auto
 }
 /* Clear floats after the columns */
 .row:after {
@@ -97,10 +107,11 @@ body {
 /* Style the footer */
 .footer {
     position: fixed;
+    width: 100%;
 	bottom: 0px;
-	width: 100%;
-	color: #454545;
+	color: #fff;
     background-color: #f1f1f1;
-    padding: 5px;
+    padding: 10px;
     text-align: center;
+    font-size: 10px;
 }

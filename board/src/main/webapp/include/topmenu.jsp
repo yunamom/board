@@ -1,8 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
 <div class="header">
   <h1>yuna</h1>
-  <p>board Project from yunamom</p>
+  <p style="font-size:10px; color:#fff;">∙ board Project from yunamom ∙</p>
 </div>
  
 <div class="topnav">

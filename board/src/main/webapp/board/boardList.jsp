@@ -23,40 +23,57 @@ ResultSet rs = stmt.executeQuery(sql);
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
 <title>메인</title>
 	<link rel="stylesheet" href="../css/layout.css">
 </head>
 <body>
+
 <%@ include file="../include/topmenu.jsp" %>
-<div class="row">
+<div class="row">	
     <h2>Main Content</h2>
-				총 게시물 갯수 : <%=total%> 개</td>
-			<button type="button" onclick="location='boardWrite.jsp'">글쓰기</button>
-		<table class="table" width="600px">
-			<tr>
-				<th>No.</th>
-				<th>제목</th>
-				<th>이름</th>
-				<th>날짜</th>
-				<th>조회수</th>
-			</tr>
-			<%while(rs.next()){		
-				String title = rs.getString("title");
-				String name = rs.getString("name");
-				String rdate = rs.getString("rdate");
-				String hits = rs.getString("hits");	
-			%>
-			<tr>
-				<td><%=total%></td>
-				<td><%=title %></td>
-				<td><%=name %></td>
-				<td><%=rdate %></td>
-				<td><%=hits %></td>
-			</tr>
-			<%	total--;}%>	
-		</table>
+    <div style="font-size:10px; text-align:left; width:700px; margin:0 auto;">
+    게시물 총갯수 <%=total%> 개</div>
+     <div style="text-align:right; width:700px; margin:0 auto;">
+   	<button type="button" onclick="location='boardWrite.jsp'">글쓰기</button></div>
+   	
+	<table class="table" width="700px">		
+	<colgroup>
+		<col width="5%"/>
+		<col width="50%"/>
+		<col width="15%"/>
+		<col width="18%"/>
+		<col width="*"/>
+	</colgroup>	
+		<tr>
+			<th>No.</th>
+			<th>제목</th>
+			<th>이름</th>
+			<th>날짜</th>
+			<th>조회수</th>
+		</tr>
+		<%while(rs.next()){	
+			int unq = rs.getInt("unq");
+			String title = rs.getString("title");
+			String name = rs.getString("name");
+			String rdate = rs.getString("rdate");
+			String hits = rs.getString("hits");	
+		%>
+		<tr>
+			<td><%=total%></td>
+			<td align="left">
+			<a href="boardDetail.jsp?unq=<%=unq%>"><%=title %></a></td>
+			<td><%=name %></td>
+			<td><%=rdate %></td>
+			<td><%=hits %></td>
+		</tr>
+		<%	total--;}%>	
+		
+	</table>
 </div>
-<%@ include file="../include/footer.jsp" %>
+<footer class="footer">
+by yunamom
+</footer>
 </body>
 </html>
