@@ -5,7 +5,7 @@
 }
 body {
     margin: 0;
-    font-family: gulim;
+    font-family: Fixedsys;
 }
 /* Style the header */
 .header {
@@ -50,10 +50,9 @@ body {
 
 /* 테이블 세팅 */
 .table {
-	overflow: hidden;
 	border-collapse: collapse;
 	border-top: 3px solid #9c6071;
-	margin: 0 auto;
+	margin: 0 auto;	
 }
 .table th {
 	color: #9c6071;
@@ -61,7 +60,7 @@ body {
 	text-align: center;
 }
 .table th, .table td {
-	padding: 10px;
+	padding: 5px;
 	border: 1px solid #ddd;
 }
 .table th:first-child, .table td:first-child {
@@ -90,7 +89,7 @@ body {
 	height: 100%;
 	text-align: center;
 	color: #454545;
-	overflow: auto
+	overflow: scroll;
 }
 /* Clear floats after the columns */
 .row:after {

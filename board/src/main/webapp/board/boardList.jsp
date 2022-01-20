@@ -33,12 +33,12 @@ ResultSet rs = stmt.executeQuery(sql);
 <%@ include file="../include/topmenu.jsp" %>
 <div class="row">	
     <h2>Main Content</h2>
-    <div style="font-size:10px; text-align:left; width:700px; margin:0 auto;">
+    <div style="font-size:10px; text-align:left; width:80%; margin:0 auto;">
     게시물 총갯수 <%=total%> 개</div>
-     <div style="text-align:right; width:700px; margin:0 auto;">
+     <div style="text-align:right; width:80%; margin:0 auto;">
    	<button type="button" onclick="location='boardWrite.jsp'">글쓰기</button></div>
    	
-	<table class="table" width="700px">		
+	<table class="table" width="80%">		
 	<colgroup>
 		<col width="5%"/>
 		<col width="50%"/>
@@ -72,8 +72,8 @@ ResultSet rs = stmt.executeQuery(sql);
 		
 	</table>
 </div>
-<footer class="footer">
+<div class="footer">
 by yunamom
-</footer>
+</div>
 </body>
 </html>

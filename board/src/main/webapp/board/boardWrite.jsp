@@ -49,27 +49,27 @@ function fn_onload() {
 <div class="row">
     <h2>Main Content</h2>
 	<form name="frm" method="post" action="boardWriteSave.jsp">
-	<table class="table" width="700px">		
+	<table class="table" width="500px">		
 	<colgroup>
 		<col width="25%"/>
 		<col width="*"/>
 	</colgroup>	
 		<tr>
 			<th>제목</th>
-			<td><input type="text" name="title" class="box_title" required></td>
+			<td style="text-align:left"><input size="75" type="text" name="title" required></td>
 		</tr>			
 		<tr>
 			<th>암호</th>
-			<td class="box_name"><input type="password" name="pass" required></td>
+			<td style="text-align:left"><input type="password" name="pass" required></td>
 		</tr>
 		<tr>
 			<th>이름</th>
-			<td class="box_name"><input type="text" name="name" ></td>
+			<td style="text-align:left"><input type="text" name="name" ></td>
 		</tr>
 		<tr>
 			<th>내용</th>
-			<td>
-			<textarea name="content" placeholder="내용을 입력하세요."></textarea>
+			<td style="text-align:left">
+			<textarea name="content" rows="10" cols="50" placeholder="내용을 입력하세요."></textarea>
 			<!-- rows 세로 cols 가로 -->
 			</td>
 		</tr>

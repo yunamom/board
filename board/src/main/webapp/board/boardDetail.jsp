@@ -28,6 +28,9 @@ if(rs.next()){ //예외처리
 	title = rs.getString("title");
 	name = rs.getString("name");
 	content = rs.getString("content");
+	// replace 
+	content = content.replace("\n","<br>");
+	content = content.replace(" ","&nbsp;");
 	rdate = rs.getString("rdate");
 }else{
 %>
@@ -45,13 +48,18 @@ if(rs.next()){ //예외처리
 <meta charset="UTF-8">
 <title>게시글작성</title>
 <link rel="stylesheet" href="../css/layout.css">
+<style>
+td{
+text-align:left;
+}
+</style>
 </head>
 <body>
 <%@ include file="../include/topmenu.jsp" %>
 <div class="row">
-    <h2>Main Content</h2>
+    <h2>boardDetail</h2>
 	<form name="frm" method="post" action="boardWriteSave.jsp">
-	<table class="table" width="700px">		
+	<table class="table" width="80%">		
 	<colgroup>
 		<col width="25%"/>
 		<col width="*"/>
@@ -62,11 +70,12 @@ if(rs.next()){ //예외처리
 		</tr>		
 		<tr>
 			<th>이름</th>
-			<td class="box_name"><%=name %></td>
+			<td><%=name %></td>
 		</tr>
 		<tr>
 			<th>내용</th>
 			<td>
+			<!-- rows 세로 cols 가로 -->
 			<%=content %>
 			</td>
 		</tr>
@@ -78,7 +87,7 @@ if(rs.next()){ //예외처리
 		</tr>
 	</table>
 		<div>
-			<button type="button" onclick="#">수정</button>	
+			<button type="button" onclick="location='boardModify.jsp?unq=<%=unq%>'">수정</button>	
 			<button type="button" onclick="location='boardList.jsp'">목록</button>
 			<button type="button" onclick="#">삭제</button>
 		</div>
