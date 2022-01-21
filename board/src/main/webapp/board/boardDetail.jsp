@@ -74,7 +74,7 @@ text-align:left;
 		</tr>
 		<tr>
 			<th>내용</th>
-			<td>
+			<td style="top:0px; height:100px">
 			<!-- rows 세로 cols 가로 -->
 			<%=content %>
 			</td>
@@ -92,9 +92,6 @@ text-align:left;
 			<button type="button" onclick="#">삭제</button>
 		</div>
 	</form>	
-</div>
-<div class="footer">
-<p>by yunamom</p>
 </div>
 </body>
 </html>

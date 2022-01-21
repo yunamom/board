@@ -1,10 +1,52 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ include file="../include/dbCon.jsp" %>
+<%
+
+String unq = request.getParameter("unq");
+
+if( unq == null || unq.equals("")){
+%>
+	<script>
+	alert("잘못된 경로의 접근!");
+	location="boardList.jsp";
+	</script>
+<%
+	return; //JSP 종료
+}
+
+String sql = "SELECT ";
+	sql += " title,";
+	sql += " name,";
+	sql += " content ";
+	sql += " FROM board ";
+	sql += " WHERE unq='"+unq+"' ";
+
+ResultSet rs = stmt.executeQuery(sql);
+
+String title = "";
+String name = "";
+String content = "";
+
+if(rs.next()){ //예외처리
+	title = rs.getString("title");
+	name = rs.getString("name");
+	content = rs.getString("content");
+} else {	
+%>
+	<script>
+	alert("잘못된 접근입니다.");
+	location = "boardList.jsp";
+	</script>
+<%
+	return;
+}
+%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>게시글작성</title>
+<title>게시글 수정</title>
 <link rel="stylesheet" href="../css/layout.css">
 </head>
 
@@ -48,7 +90,9 @@ function fn_onload() {
 <%@ include file="../include/topmenu.jsp" %>
 <div class="row">
     <h2>Main Content</h2>
-	<form name="frm" method="post" action="boardWriteSave.jsp">
+	<form name="frm" method="post" action="boardModifySave.jsp">
+	<input type="hidden" name="unq" value="<%=unq%>"> <!-- 키 값을 보내준다. -->
+	
 	<table class="table" width="80%">		
 	<colgroup>
 		<col width="25%"/>
@@ -56,7 +100,7 @@ function fn_onload() {
 	</colgroup>	
 		<tr>
 			<th>제목</th>
-			<td style="text-align:left"><input size="40" type="text" name="title" required></td>
+			<td style="text-align:left"><input size="40" type="text" name="title" value="<%=title%>"></td>
 		</tr>			
 		<tr>
 			<th>암호</th>
@@ -64,12 +108,12 @@ function fn_onload() {
 		</tr>
 		<tr>
 			<th>이름</th>
-			<td style="text-align:left"><input type="text" name="name" ></td>
+			<td style="text-align:left"><input type="text" name="name" value="<%=name%>"></td>
 		</tr>
 		<tr>
 			<th>내용</th>
 			<td style="text-align:left">
-			<textarea name="content" rows="5" cols="40" placeholder="내용을 입력하세요."></textarea>
+			<textarea name="content" rows="5" cols="40"><%=content%></textarea>
 			<!-- rows 세로 cols 가로 -->
 			</td>
 		</tr>

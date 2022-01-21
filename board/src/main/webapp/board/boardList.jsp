@@ -16,7 +16,7 @@ String sql = " SELECT unq,";
 		// left(rdate,10), substring(1,10)
 		sql+=" hits ";
 		sql+=" FROM board ";
-		sql+=" ORDER BY unq DESC ";
+		sql+=" ORDER BY unq LIMIT 0,3 ";
 	   
 ResultSet rs = stmt.executeQuery(sql);
 %>
@@ -40,10 +40,10 @@ ResultSet rs = stmt.executeQuery(sql);
    	
 	<table class="table" width="80%">		
 	<colgroup>
-		<col width="5%"/>
+		<col width="8%"/>
 		<col width="50%"/>
 		<col width="15%"/>
-		<col width="18%"/>
+		<col width="15%"/>
 		<col width="*"/>
 	</colgroup>	
 		<tr>
@@ -71,9 +71,6 @@ ResultSet rs = stmt.executeQuery(sql);
 		<%	total--;}%>	
 		
 	</table>
-</div>
-<div class="footer">
-by yunamom
 </div>
 </body>
 </html>
