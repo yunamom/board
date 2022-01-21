@@ -49,7 +49,7 @@ function fn_onload() {
 <div class="row">
     <h2>Main Content</h2>
 	<form name="frm" method="post" action="boardWriteSave.jsp">
-	<table class="table" width="80%">		
+	<table class="table">		
 	<colgroup>
 		<col width="25%"/>
 		<col width="*"/>
@@ -69,7 +69,7 @@ function fn_onload() {
 		<tr>
 			<th>내용</th>
 			<td style="text-align:left">
-			<textarea name="content" rows="5" cols="40" placeholder="내용을 입력하세요."></textarea>
+			<textarea name="content" rows="10" cols="40" placeholder="내용을 입력하세요."></textarea>
 			<!-- rows 세로 cols 가로 -->
 			</td>
 		</tr>

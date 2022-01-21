@@ -79,11 +79,9 @@ function fn_submit() {
 	
 }
 function fn_onload() {
-	var f = document.frm;
-	
-	f.title.focus();
-	f.onload();
-	
+	var f = document.frm;	
+	f.title.focus(); //제목에 커서를 준다.
+	f.onload();	
 }
 </script>
 <body onload="fn_onload()" >
@@ -93,7 +91,7 @@ function fn_onload() {
 	<form name="frm" method="post" action="boardModifySave.jsp">
 	<input type="hidden" name="unq" value="<%=unq%>"> <!-- 키 값을 보내준다. -->
 	
-	<table class="table" width="80%">		
+	<table class="table">		
 	<colgroup>
 		<col width="25%"/>
 		<col width="*"/>
@@ -113,7 +111,7 @@ function fn_onload() {
 		<tr>
 			<th>내용</th>
 			<td style="text-align:left">
-			<textarea name="content" rows="5" cols="40"><%=content%></textarea>
+			<textarea name="content" rows="10" cols="40"><%=content%></textarea>
 			<!-- rows 세로 cols 가로 -->
 			</td>
 		</tr>

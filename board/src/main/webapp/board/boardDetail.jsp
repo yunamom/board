@@ -12,6 +12,7 @@ stmt.executeUpdate(sql2);
 String sql = "SELECT ";
 	sql += " title,";
 	sql += " name,";
+	sql += " pass,";
 	sql += " content,";
 	sql += " DATE_FORMAT(rdate,'%Y년%m월%d일')rdate";
 	sql += " FROM board";
@@ -21,12 +22,14 @@ ResultSet rs = stmt.executeQuery(sql);
 
 String title = "";
 String name = "";
+String pass = "";
 String content = "";
 String rdate = "";
 
 if(rs.next()){ //예외처리
 	title = rs.getString("title");
 	name = rs.getString("name");
+	pass = rs.getString("pass");
 	content = rs.getString("content");
 	// replace 
 	content = content.replace("\n","<br>");
@@ -59,7 +62,7 @@ text-align:left;
 <div class="row">
     <h2>boardDetail</h2>
 	<form name="frm" method="post" action="boardWriteSave.jsp">
-	<table class="table" width="80%">		
+	<table class="table">		
 	<colgroup>
 		<col width="25%"/>
 		<col width="*"/>
@@ -89,7 +92,7 @@ text-align:left;
 		<div>
 			<button type="button" onclick="location='boardModify.jsp?unq=<%=unq%>'">수정</button>	
 			<button type="button" onclick="location='boardList.jsp'">목록</button>
-			<button type="button" onclick="#">삭제</button>
+			<button type="button" onclick="location='passWrite.jsp?unq=<%=unq%>'">삭제</button>
 		</div>
 	</form>	
 </div>

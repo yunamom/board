@@ -54,14 +54,14 @@ int result = stmt.executeUpdate(sql);
 if( result == 1){
 %>
 	<script>
-	alert("저장완료\n 목록으로 이동합니다.");
+	alert("저장완료\n목록으로 이동합니다.");
 	location="boardList.jsp";
 	</script>
 <%
 } else {
 %>
 	<script>
-	alert("저장실패 관리자에게 연락해주세요.");
+	alert("저장실패\n관리자에게 연락해주세요.");
 	history.back();
 	</script>
 <%}%>

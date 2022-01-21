@@ -22,7 +22,6 @@
   <a href="../board/boardList.jsp">∙ Board</a>
   <a href="#">∙ Q&A</a>
   <a href="#">∙ Chat</a>
-  <a href="#">∙ Join</a>
   <a href="#">∙ Login</a>
  
 </div>

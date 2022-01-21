@@ -16,7 +16,7 @@ String sql = " SELECT unq,";
 		// left(rdate,10), substring(1,10)
 		sql+=" hits ";
 		sql+=" FROM board ";
-		sql+=" ORDER BY unq LIMIT 0,3 ";
+		sql+=" ORDER BY unq DESC LIMIT 5 ";
 	   
 ResultSet rs = stmt.executeQuery(sql);
 %>
@@ -33,12 +33,12 @@ ResultSet rs = stmt.executeQuery(sql);
 <%@ include file="../include/topmenu.jsp" %>
 <div class="row">	
     <h2>Main Content</h2>
-    <div style="font-size:10px; text-align:left; width:80%; margin:0 auto;">
-    게시물 총갯수 <%=total%> 개</div>
-     <div style="text-align:right; width:80%; margin:0 auto;">
+    <div class="L">
+    ∙ 게시물 총갯수 <%=total%> 개</div>
+     <div class="R">
    	<button type="button" onclick="location='boardWrite.jsp'">글쓰기</button></div>
    	
-	<table class="table" width="80%">		
+	<table class="table">		
 	<colgroup>
 		<col width="8%"/>
 		<col width="50%"/>
