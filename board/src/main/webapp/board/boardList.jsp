@@ -5,6 +5,15 @@
 
 <%
 int p = 5; //한페이지에 보여질 게시물 갯수
+String view = request.getParameter("view");
+
+if(view == null){
+	view = "1";
+}
+
+int vpage = Integer.parseInt(view);
+
+int index = (vpage-1)*p;
 
 String cnt = " SELECT count(*) total FROM board";
 ResultSet rsCnt = stmt.executeQuery(cnt);
@@ -19,11 +28,14 @@ int total = rsCnt.getInt("total");
  29/10 -> 2.9 -> ceil(2.9) -> 3.0
  
  소숫점을 얻기위해 total 이라는 변수를 나누기 처리를 할때 double 을 넣어준다.
- *실수(double)는 for 문에 적용할수없다.
+ * 실수(double)는 for 문에 적용할수없다.
  고로 lastpage 받는 변수에 맞춰서 (int)를 추가해준다.
 */
 int lastpage = (int)Math.ceil((double)total/p);
 
+int rowNo = total - index; //행번호 * 아주 중요합니다 *
+//제목 옆에 나올 게시물 번호
+		 
 String sql = " SELECT unq,";
 		sql+=" title,";
 		sql+=" name,";
@@ -31,7 +43,7 @@ String sql = " SELECT unq,";
 		// left(rdate,10), substring(1,10)
 		sql+=" hits ";
 		sql+=" FROM board ";
-		sql+=" ORDER BY unq DESC LIMIT "+p+" ";
+		sql+=" ORDER BY unq DESC LIMIT "+index+","+p+" ";
 	   
 ResultSet rs = stmt.executeQuery(sql);
 %>
@@ -76,21 +88,25 @@ ResultSet rs = stmt.executeQuery(sql);
 			String hits = rs.getString("hits");	
 		%>
 		<tr>
-			<td><%=total%></td>
+			<td><%=rowNo%></td> 
+			<!-- unq 를 넣을수없는 이유는 번호가 삭제된 게시물을 건너띄고 나오기 때문이다.-->
 			<td align="left">
 			<a href="boardDetail.jsp?unq=<%=unq%>"><%=title %></a></td>
 			<td><%=name %></td>
 			<td><%=rdate %></td>
 			<td><%=hits %></td>
 		</tr>
-		<%	total--;}%>		
+		<%	rowNo--;}%>		
 	</table>
 	<div style="margin:30px">
 	<%
 	for(int i=1; i<=lastpage; i++){
-		out.print(i+"  ");
-	}
-	
+	//페이지 화면 2가지 방법으로 작성할수 있다. 
+	//	out.print("<a href='boardList.jsp?view="+i+"'>"+i+"</a>   ");
+	%>	
+		<a href="boardList.jsp?view=<%=i%>"><%=i %></a>
+	<% 
+	}	
 	%>
 	</div>
 </div>
