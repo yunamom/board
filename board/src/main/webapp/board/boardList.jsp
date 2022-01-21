@@ -1,13 +1,28 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
+<%@ page import="java.util.*"%>
 <%@ include file="../include/dbCon.jsp" %>
 
 <%
+int p = 5; //한페이지에 보여질 게시물 갯수
+
 String cnt = " SELECT count(*) total FROM board";
 ResultSet rsCnt = stmt.executeQuery(cnt);
 rsCnt.next(); //게시물 총갯수
 int total = rsCnt.getInt("total");
+
+/*페이징 처리를 위한 추가
+ 
+ ex)
+ 게시물 갯수가 10개씩 이라고 할경우
+ 19/10 -> 1.9 -> ceil(1.9) -> 2.0 
+ 29/10 -> 2.9 -> ceil(2.9) -> 3.0
+ 
+ 소숫점을 얻기위해 total 이라는 변수를 나누기 처리를 할때 double 을 넣어준다.
+ *실수(double)는 for 문에 적용할수없다.
+ 고로 lastpage 받는 변수에 맞춰서 (int)를 추가해준다.
+*/
+int lastpage = (int)Math.ceil((double)total/p);
 
 String sql = " SELECT unq,";
 		sql+=" title,";
@@ -16,7 +31,7 @@ String sql = " SELECT unq,";
 		// left(rdate,10), substring(1,10)
 		sql+=" hits ";
 		sql+=" FROM board ";
-		sql+=" ORDER BY unq DESC LIMIT 5 ";
+		sql+=" ORDER BY unq DESC LIMIT "+p+" ";
 	   
 ResultSet rs = stmt.executeQuery(sql);
 %>
@@ -68,9 +83,16 @@ ResultSet rs = stmt.executeQuery(sql);
 			<td><%=rdate %></td>
 			<td><%=hits %></td>
 		</tr>
-		<%	total--;}%>	
-		
+		<%	total--;}%>		
 	</table>
+	<div style="margin:30px">
+	<%
+	for(int i=1; i<=lastpage; i++){
+		out.print(i+"  ");
+	}
+	
+	%>
+	</div>
 </div>
 </body>
 </html>
