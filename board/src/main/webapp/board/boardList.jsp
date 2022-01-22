@@ -8,7 +8,7 @@ int p = 5; //한페이지에 보여질 게시물 갯수
 String view = request.getParameter("view");
 
 if(view == null){
-	view = "1";
+	view = "1"; //현재 페이지
 }
 
 int vpage = Integer.parseInt(view);
@@ -19,6 +19,9 @@ String cnt = " SELECT count(*) total FROM board";
 ResultSet rsCnt = stmt.executeQuery(cnt);
 rsCnt.next(); //게시물 총갯수
 int total = rsCnt.getInt("total");
+
+
+//전체 페이지 갯수를 구한다.
 
 /*페이징 처리를 위한 추가
  
@@ -32,7 +35,11 @@ int total = rsCnt.getInt("total");
  고로 lastpage 받는 변수에 맞춰서 (int)를 추가해준다.
 */
 int lastpage = (int)Math.ceil((double)total/p);
-
+		 
+/*
+삼항연산자를 적용한 예 
+int lastpage = total%p==0?total/p:(total/p)+1;
+*/
 int rowNo = total - index; //행번호 * 아주 중요합니다 *
 //제목 옆에 나올 게시물 번호
 		 
@@ -98,13 +105,13 @@ ResultSet rs = stmt.executeQuery(sql);
 		</tr>
 		<%	rowNo--;}%>		
 	</table>
-	<div style="margin:30px">
+	<div class="view">
 	<%
 	for(int i=1; i<=lastpage; i++){
 	//페이지 화면 2가지 방법으로 작성할수 있다. 
 	//	out.print("<a href='boardList.jsp?view="+i+"'>"+i+"</a>   ");
-	%>	
-		<a href="boardList.jsp?view=<%=i%>"><%=i %></a>
+	%>		
+	<a href="boardList.jsp?view=<%=i%>"><%=i%></a>
 	<% 
 	}	
 	%>

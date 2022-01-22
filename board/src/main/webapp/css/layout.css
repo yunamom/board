@@ -46,7 +46,14 @@ body {
 }
 /* Middle column */
 .column.middle {
-    width: 75%;   
+    width: 75%;  
+}
+.column.middle a{
+	text-decoration: none;
+	color: #454545;
+}
+.column.middle a:hover{
+	color: #9c6071;
 }
 
 /* 테이블 세팅 */
@@ -82,6 +89,22 @@ body {
     background-color: #ddd;
     color: #454545;
 }
+.img {
+	margin-top: 5%;
+}
+.img a{
+	text-decoration: none;
+	color: #454545;
+}
+.img a:hover{
+	color: #9c6071;
+}
+.img img{
+	width: 200px;
+	height: 200px;
+	border-radius: 50%;
+	border: 2px dotted #454545;
+}
 button {
 	margin-top:20px;
 }
@@ -96,6 +119,18 @@ button {
 	text-align:right;
 	width:75%;
 	margin:0 auto;
+}
+.view {
+	margin : 30px;
+}
+.view a{
+	text-decoration: none;
+	color: #9c6071;
+	margin : 10px;
+}
+.view a:hover {
+    background-color: #ddd;
+    color: #454545;
 }
 .row {
 	width: 100%;
@@ -117,7 +152,7 @@ button {
     }
     .table, .L, .R{
     	width: 95%;
-    	font-size: 70%;
+    	font-size: 80%;
     }
 }
 /* Style the footer */
