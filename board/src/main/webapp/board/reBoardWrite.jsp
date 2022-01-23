@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>답변게시글 작성</title>
+<title>Q & A 게시글 작성</title>
 <link rel="stylesheet" href="../css/layout.css">
 </head>
 
@@ -45,7 +45,7 @@ function fn_onload() {
 <body onload="fn_onload()" > <!-- 화면이 열리면 커서가 제목에 갈수있게 적용한다. -->
 <%@ include file="../include/topmenu.jsp" %>
 <div class="row">
-    <h2>답변 게시판</h2>
+    <h2>Q & A Board</h2>
 	<form name="frm" method="post" action="reBoardWriteSave.jsp">
 	<table class="table">		
 	<colgroup>

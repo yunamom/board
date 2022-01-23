@@ -37,7 +37,7 @@ body {
 </div>
 <div class="column side">
 	<a href="../board/boardList.jsp">∙ Board ∙</a>
-	<a href="#">∙ reboard ∙</a>
+	<a href="../board/reBoardList.jsp">∙ Q & A ∙</a>
 	<a href="#">∙ Chat ∙</a>
 	<a href="#">∙ Login ∙</a>
 </div>

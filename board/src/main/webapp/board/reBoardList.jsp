@@ -59,14 +59,14 @@ ResultSet rs = stmt.executeQuery(sql);
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>답변 게시판 목록</title>
+<title>Q & A list</title>
 	<link rel="stylesheet" href="../css/layout.css">
 </head>
 <body>
 
 <%@ include file="../include/topmenu.jsp" %>
 <div class="row">	
-    <h2>reBoard Main</h2>
+    <h2>Q & A Content</h2>
     <div class="L">
     ∙ 게시물 총갯수 <%=total%> 개</div>
      <div class="R">
