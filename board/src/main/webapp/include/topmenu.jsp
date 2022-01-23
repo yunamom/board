@@ -20,7 +20,7 @@
 <div class="topnav">
   <a href="../main/index.jsp">∙ Main</a>
   <a href="../board/boardList.jsp">∙ Board</a>
-  <a href="#">∙ Q&A</a>
+  <a href="#">∙ reBoard</a>
   <a href="#">∙ Chat</a>
   <a href="#">∙ Login</a>
  
