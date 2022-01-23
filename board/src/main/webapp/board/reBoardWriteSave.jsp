@@ -43,11 +43,25 @@ if(content.length() > 5000){//게시물 글자수 제한
 %>
 <!-- SQL/적용 -->
 <%
-//rdate 는 mysql 함수중에 now() 를 사용합니다.
-String sql = "INSERT INTO board(title,pass,name,content,rdate)";
-	   sql+= "VALUES('"+title+"','"+pass+"','"+name+"','"+content+"', now() )";
+//답변 게시판은 gid 와 thread 를 추가해준다. alias 앞에 as 는 생략가능 
+String sql = "SELECT ifnull(max(gid),0)+1 as mygid FROM reboard";
+//max(gid)+1 값이 NULL 일경우 gid 값에 0을 넣어주기 위해 if null 을 작성한다.
+ResultSet rs = stmt.executeQuery(sql);
+rs.next();
+int mygid = rs.getInt("mygid");
 
-int result = stmt.executeUpdate(sql); 
+//rdate 는 mysql 함수중에 now() 를 사용합니다.
+String sql2 = "INSERT INTO reboard(";
+       sql2+= "title,pass,name,content,rdate,gid,thread)";
+	   sql2+= "VALUES('"+title+"'";
+	   sql2+= ",'"+pass+"'";
+	   sql2+= ",'"+name+"'";
+	   sql2+= ",'"+content+"'";
+	   sql2+= ", now()";
+	   sql2+= ",'"+mygid+"'";
+	   sql2+= ",'a')";	   
+
+int result = stmt.executeUpdate(sql2); 
 
 
 
@@ -55,7 +69,7 @@ if( result == 1){
 %>
 	<script>
 	alert("저장완료\n목록으로 이동합니다.");
-	location="boardList.jsp";
+	location="reBoardList.jsp";
 	</script>
 <%
 } else {
