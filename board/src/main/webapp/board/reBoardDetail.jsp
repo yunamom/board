@@ -37,8 +37,6 @@ if(rs.next()){ //예외처리
 	/*
 	content 부분에 \n 및 공백을 html 요소로 바꿈
 	\n : 화면에서 데이터 저장 시 줄바꿈의 결과로 DB에 저장된 기호 (안보임)
-	
-	
 	*/
 	content = content.replace("\n","<br>");
 	content = content.replace(" ","&nbsp;");

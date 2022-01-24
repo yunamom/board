@@ -102,8 +102,11 @@ body {
 .img img{
 	width: 200px;
 	height: 200px;
-	border-radius: 50%;
-	border: 2px dotted #454545;
+	border-radius: 1rem;
+	border: 2px dotted #f1f1f1;
+}
+.img img:hover{
+	border: 2px dotted #9c6071;
 }
 button {
 	margin-top:20px;
