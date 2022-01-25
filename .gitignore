@@ -5,6 +5,15 @@
 *.pdf
 *.xlsx
 ### add from me ###
+#DB file
+dbCon.jsp
+
+#Eclipse core
+.project
+
+#JDT-specific (Eclipse JAVA Development Tools)
+.classpath
+
 
 
 ### Eclipse ###
