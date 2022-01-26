@@ -94,13 +94,13 @@ text-align:left;
 			</td>
 		</tr>
 	</table>
-		<div>
+		<div class="view">
 			<button type="button" onclick="location='reBoardWrite.jsp'">입력</button>
 			<button type="button" onclick="location='reBoardList.jsp'">목록</button>
 			<button type="button" onclick="locatoin='replyWrite.jsp?unq=<%=unq%>'">답변</button>
 			<!-- 현재 위치한 화면의 unq 값을 답변게시물 작성에 넘겨준다. -->
-			<button type="button" onclick="location='reBoardModify.jsp?unq=<%=unq%>'">수정</button>	
-			<button type="button" onclick="location='passWrite.jsp?unq=<%=unq%>&check=R'">삭제</button>
+			<button type="button" onclick="location='passModify.jsp?unq=<%=unq%>&gubun=R'">수정</button>	
+			<button type="button" onclick="location='passWrite.jsp?unq=<%=unq%>&gubun=R'">삭제</button>
 			<!-- 게시판과 답변 게시판의 unq 넘버를 구분하기위해 check=R attribute 를 작성해준다. -->
 		</div>
 </div>

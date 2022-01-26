@@ -11,17 +11,17 @@
 }
 </style>
 <div class="header">
-  <h2>미완성 프로젝트 입니다.</h2>
+  <h2>Welcome</h2>
   <a href="http://yunamom.duckdns.org">
   <p>∙ Project File List ∙</p>
   </a>
 </div>
- 
+
 <div class="topnav">
   <a href="../main/index.jsp">∙ Main</a>
   <a href="../board/boardList.jsp">∙ Board</a>
-  <a href="../board/reBoardList.jsp">∙ Q & A</a>
-  <a href="#">∙ Chat</a>
+  <a href="../board/reBoardList.jsp">∙ Q&A</a>
+  <a href="../board/game.jsp">∙ Chat</a>
+  <a href="#">∙ Game</a>
   <a href="#">∙ Login</a>
- 
 </div>

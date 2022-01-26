@@ -19,7 +19,7 @@ if(unq == null || title == null || pass == null) {
 %>
 	<script>
 	alert("잘못된 경로입니다.");
-	location="boardList.jsp";
+	location="reBoardList.jsp";
 	</script>
 <%
 	return;
@@ -31,7 +31,7 @@ if(unq == null || title == null || pass == null) {
 // SELECT count(*) FROM board WHERE unq=7 and pass='1234'
 // result : 1 (정상) , 0 (에러)
 String sql = " SELECT count(*) cnt "; //alias 해준다.
-      sql += " FROM board ";
+      sql += " FROM reboard ";
       sql += " WHERE unq='"+unq+"' and pass='"+pass+"' ";
 
 ResultSet rs = stmt.executeQuery(sql);
@@ -49,7 +49,7 @@ if(cnt==0){
 <!--  UPDATE SQL 작성 및 적용 -->
 <%
 // title,name,content
-String sql2 = " UPDATE board SET ";
+String sql2 = " UPDATE reboard SET ";
        sql2+= " title='"+title+"', ";
        sql2+= " name='"+name+"', ";
        sql2+= " content='"+content+"', ";
@@ -65,14 +65,14 @@ if(result==1){
 %>
 	<script>
 	alert("변경완료");
-	location="boardList.jsp";
+	location="reBoardList.jsp";
 	</script>
 <%
 } else {
 %>
 	<script>
 	alert("변경실패\n관리자에게 연락해주세요.");
-	location="boardList.jsp";
+	location="reBoardList.jsp";
 	</script>
 <% 
 }

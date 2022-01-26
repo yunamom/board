@@ -6,7 +6,7 @@
 
 String unq = request.getParameter("unq");
 String gubun = request.getParameter("gubun");
-// 답변형 게시판은 gubun=R 일반은 null
+// 답변형 게시판은 수정버튼을 눌렀을때 gubun=R 일반은 null
 
 if(unq == null) {
 %>
@@ -17,15 +17,16 @@ if(unq == null) {
 <%
 	return;
 }
-String pass_url = ""; //뒤로가기 변수
-String delete_url = ""; // 구분을 위해 변수를 생성해준다.
-if(gubun == null){
-	pass_url = "boardList.jsp";
-	delete_url = "boardDelete.jsp";
+String modify_url = ""; // 구분을 위해 변수를 생성해준다.
+String modifypass_url = "";
+
+if(gubun == null) { 
+	modify_url = "boardModify.jsp";
+	modifypass_url = "boardList.jsp";
 }
-else if(gubun.equals("R")) { 
-	pass_url = "reBoardList.jsp";
-	delete_url = "reBoardDelete.jsp";
+else if(gubun.equals("R")) {
+	modify_url = "reBoardModify.jsp";
+	modifypass_url = "reBoardList.jsp";
 }
 %>
 <!DOCTYPE html>
@@ -37,6 +38,7 @@ else if(gubun.equals("R")) {
 </head>
 <script>
 function fn_submit(){
+	
 	var f = document.frm;
 	if(f.pass.value == ""){
 		alert("암호를 입력해주세요.");
@@ -55,7 +57,7 @@ function fn_onload(){
 <%@ include file="../include/topmenu.jsp" %>
 <div class="row">
     <h2>pass Word</h2>
-	<form name="frm" method="post" action="<%=delete_url%>">
+	<form name="frm" method="post" action="<%=modify_url%>">
 	<input type="hidden" name="unq" value="<%=unq%>">
 	<table class="table" style="width:40%">		
 	<colgroup>
@@ -67,9 +69,9 @@ function fn_onload(){
 			<td style="text-align:left"><input type="password" size="30" name="pass"></td>
 		</tr>
 	</table>
-		<div>
-			<button type="reset" onclick="location='<%=pass_url%>'">뒤로</button>	
-			<button type="submit" onclick="fn_submit();return false;">삭제</button>
+		<div class="view"><!-- 버튼과 테이블 간격을 위해 추가! -->
+			<button type="reset" onclick="location='<%=modifypass_url%>'">뒤로</button>	
+			<button type="submit" onclick="fn_submit(); return false;">확인</button>
 		</div>
 	</form>	
 </div>

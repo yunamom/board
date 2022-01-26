@@ -47,6 +47,7 @@ body {
 /* Middle column */
 .column.middle {
     width: 75%;  
+    color: white;
 }
 .column.middle a{
 	text-decoration: none;

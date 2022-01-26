@@ -10,7 +10,7 @@ body {
 	float: left;
 }
 .column.side a {
-	padding-top: 45px;
+	padding: 1.5rem;
 	margin: 0 auto;
 	display: flex;
 	justify-content: center;
@@ -30,14 +30,12 @@ body {
     color: #fff;
 }
 </style>
-<div class="header">
-  <h1><a href="../board/game.jsp">
-  ∙ game ∙
-  </a></h1>
-</div>
+
 <div class="column side">
+	<a href="../board/game.jsp">∙ Game ∙</a>
 	<a href="../board/boardList.jsp">∙ Board ∙</a>
 	<a href="../board/reBoardList.jsp">∙ Q & A ∙</a>
 	<a href="#">∙ Chat ∙</a>
 	<a href="#">∙ Login ∙</a>
+	<a href="#">∙ Jogin ∙</a>
 </div>

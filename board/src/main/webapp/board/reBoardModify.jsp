@@ -1,18 +1,41 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="../include/dbCon.jsp" %>
+
 <%
-
 String unq = request.getParameter("unq");
-
-if( unq == null || unq.equals("")){
+String pass = request.getParameter("pass");
+%>
+<!-- 유효성 체크 -->
+<%
+if( unq == null || pass == null){
 %>
 	<script>
-	alert("잘못된 경로의 접근!");
-	location="boardList.jsp";
+	alert("잘못된 경로의 접근입니다.");
+	location="boardList.jsp";	
 	</script>
 <%
-	return; //JSP 종료
+	return;
+}
+%>
+<!-- 패스워드 일치 검사 -->
+<%
+// 게시물 번호와 게시물 비밀번호가 일치할시에 1 그외에는 0 이다.
+
+String sql2 = " SELECT count(*) cnt FROM reboard ";
+       sql2+= " WHERE unq = '"+unq+"' and pass = '"+pass+"' ";
+
+ResultSet rs = stmt.executeQuery(sql2);
+rs.next();
+int cnt = rs.getInt("cnt");
+if(cnt==0){
+%>
+	<script>
+	alert("암호를 다시 확인해 주세요.");
+	history.back();
+	</script>
+<%
+	return;
 }
 
 String sql = "SELECT ";
@@ -22,7 +45,7 @@ String sql = "SELECT ";
 	sql += " FROM reboard ";
 	sql += " WHERE unq='"+unq+"' ";
 
-ResultSet rs = stmt.executeQuery(sql);
+rs = stmt.executeQuery(sql);
 
 String title = "";
 String name = "";

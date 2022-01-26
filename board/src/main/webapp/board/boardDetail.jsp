@@ -89,8 +89,8 @@ text-align:left;
 			</td>
 		</tr>
 	</table>
-		<div>
-			<button type="button" onclick="location='boardModify.jsp?unq=<%=unq%>'">수정</button>	
+		<div class="view">
+			<button type="button" onclick="location='passModify.jsp?unq=<%=unq%>'">수정</button>	
 			<button type="button" onclick="location='boardList.jsp'">목록</button>
 			<button type="button" onclick="location='passWrite.jsp?unq=<%=unq%>'">삭제</button>
 		</div>
