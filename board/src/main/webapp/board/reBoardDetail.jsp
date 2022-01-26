@@ -97,7 +97,7 @@ text-align:left;
 		<div class="view">
 			<button type="button" onclick="location='reBoardWrite.jsp'">입력</button>
 			<button type="button" onclick="location='reBoardList.jsp'">목록</button>
-			<button type="button" onclick="locatoin='replyWrite.jsp?unq=<%=unq%>'">답변</button>
+			<button type="button" onclick="location='replyWrite.jsp?unq=<%=unq%>'">답변</button>
 			<!-- 현재 위치한 화면의 unq 값을 답변게시물 작성에 넘겨준다. -->
 			<button type="button" onclick="location='passModify.jsp?unq=<%=unq%>&gubun=R'">수정</button>	
 			<button type="button" onclick="location='passWrite.jsp?unq=<%=unq%>&gubun=R'">삭제</button>

@@ -28,7 +28,7 @@
 <%@ include file="../include/topmenu.jsp" %>
 <div class="row">
 	<div class="main">
-	<a href="http://yunamom.duckdns.org">
+	<a href="https://yunamom.duckdns.org">
 	∙ Project File List ∙</a>
 	</div>
 </div>

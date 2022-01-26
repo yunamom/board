@@ -10,7 +10,7 @@ dbCon.jsp
 
 #Eclipse core
 .project
-
+META-INF
 #JDT-specific (Eclipse JAVA Development Tools)
 .classpath
 
