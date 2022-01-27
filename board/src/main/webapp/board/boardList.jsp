@@ -95,7 +95,7 @@ ResultSet rs = stmt.executeQuery(sql);
 			String hits = rs.getString("hits");	
 		%>
 		<tr>
-			<td><%=rowNo%></td> 
+			<td style="color:#848484"><%=rowNo%></td> 
 			<!-- unq 를 넣을수없는 이유는 번호가 삭제된 게시물을 건너띄고 나오기 때문이다.-->
 			<td align="left">
 			<a href="boardDetail.jsp?unq=<%=unq%>"><%=title %></a></td>

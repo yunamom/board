@@ -95,7 +95,7 @@ ResultSet rs = stmt.executeQuery(sql);
 			String hits = rs.getString("hits");	
 		%>
 		<tr>
-			<td><%=rowNo%></td> 
+			<td style="color:#848484"><%=rowNo%></td> 
 			<!-- unq 를 넣을수없는 이유는 번호가 삭제된 게시물을 건너띄고 나오기 때문이다.-->
 			<td align="left">
 			<a href="reBoardDetail.jsp?unq=<%=unq%>"><%=title %></a></td>
@@ -109,9 +109,9 @@ ResultSet rs = stmt.executeQuery(sql);
 	<%
 	for(int i=1; i<=lastpage; i++){
 	//페이지 화면 2가지 방법으로 작성할수 있다. 
-	//	out.print("<a href='boardList.jsp?view="+i+"'>"+i+"</a>   ");
+	//	out.print("<a href='reBoardList.jsp?view="+i+"'>"+i+"</a>   ");
 	%>		
-	<a href="boardList.jsp?view=<%=i%>"><%=i%></a>
+	<a href="reBoardList.jsp?view=<%=i%>"><%=i%></a>
 	<% 
 	}	
 	%>

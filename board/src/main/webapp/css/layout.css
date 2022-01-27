@@ -120,6 +120,7 @@ button {
 .L { /* 테이블위 왼쪽에 총게시물 갯수를 표현 */
 	position: flex;
 	font-size:10px;
+	color: #848484;
 	text-align:left;
 	width:75%;
 	max-width:750px; 
@@ -165,7 +166,7 @@ button {
     }
     .table, .L, .R{
     	width: 98%;
-    	font-size: 80%;
+    	font-size: 90%;
     }
 }
 /* Style the footer */

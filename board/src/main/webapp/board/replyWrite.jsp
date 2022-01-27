@@ -60,6 +60,7 @@ function fn_onload() {
 <div class="row">
     <h2>Q & A Board Reply</h2>
 	<form name="frm" method="post" action="replyWriteSave.jsp">
+	<input type="hidden" name="unq" value="<%=unq %>"/>
 	<table class="table">		
 	<colgroup>
 		<col width="25%"/>
