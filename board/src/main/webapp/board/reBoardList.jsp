@@ -48,9 +48,12 @@ String sql = " SELECT unq,";
 		sql+=" name,";
 		sql+=" date_format(rdate,'%Y-%m-%d') rdate,"; 
 		// left(rdate,10), substring(1,10)
-		sql+=" hits ";
+		sql+=" hits, ";
+		sql+=" gid, ";
+		sql+=" thread ";
 		sql+=" FROM reboard ";
-		sql+=" ORDER BY unq DESC LIMIT "+index+","+p+" ";
+		sql+=" ORDER BY gid DESC,thread ASC"; //답글이 글 사이에 들어갈수있도록 작성해준다.
+		sql+=" LIMIT "+index+","+p+" "; //limit 시작번호,출력갯수 예(0,10)
 	   
 ResultSet rs = stmt.executeQuery(sql);
 %>
@@ -92,12 +95,25 @@ ResultSet rs = stmt.executeQuery(sql);
 			String title = rs.getString("title");
 			String name = rs.getString("name");
 			String rdate = rs.getString("rdate");
-			String hits = rs.getString("hits");	
+			String hits = rs.getString("hits");
+			String thread = rs.getString("thread");
+			// a(원글) , (aa,ab,ac,ad ~)(답글), (aaa,aab,aac ~)(답글의 답글)
+			int len = thread.length();
+			String re = "";
+			String space = "";
+			if(len > 1){
+				for(int i=0; i<len; i++){
+					space+="&nbsp;&nbsp;";
+				}
+				re=space+"[re]";
+			}
 		%>
 		<tr>
 			<td style="color:#848484"><%=rowNo%></td> 
 			<!-- unq 를 넣을수없는 이유는 번호가 삭제된 게시물을 건너띄고 나오기 때문이다.-->
 			<td align="left">
+		
+			<%=re%>
 			<a href="reBoardDetail.jsp?unq=<%=unq%>"><%=title %></a></td>
 			<td><%=name %></td>
 			<td><%=rdate %></td>
