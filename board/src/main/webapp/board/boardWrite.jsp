@@ -74,7 +74,7 @@ function fn_onload() {
 			</td>
 		</tr>
 	</table>
-		<div>
+		<div class="view">
 			<button type="submit" onclick="fn_submit();return false;">저장</button>
 			<!-- 오류가났을때 submit 멈추기위해 자바스크립트를 작성해준다. -->
 			<button type="reset" onclick="location='boardList.jsp'">취소</button>

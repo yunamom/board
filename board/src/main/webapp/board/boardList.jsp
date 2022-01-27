@@ -70,7 +70,7 @@ ResultSet rs = stmt.executeQuery(sql);
     <div class="L">
     ∙ 게시물 총갯수 <%=total%> 개</div>
      <div class="R">
-   	<button type="button" onclick="location='boardWrite.jsp'">글쓰기</button></div>
+   	<button class="button" type="button" onclick="location='boardWrite.jsp'">글쓰기</button></div>
    	
 	<table class="table">		
 	<colgroup>

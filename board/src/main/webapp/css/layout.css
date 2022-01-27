@@ -67,7 +67,7 @@ body {
 	max-width: 750px;
 	border-collapse: collapse;
 	border-top: 3px solid #9c6071;
-	margin: 0 auto;	
+	margin: 0 auto;
 }
 .table th {
 	color: #9c6071;
@@ -114,7 +114,7 @@ body {
 .img img:hover{
 	border: 2px dotted #9c6071;
 }
-button {
+.button {
 	margin-top:20px;
 }
 .L { /* 테이블위 왼쪽에 총게시물 갯수를 표현 */

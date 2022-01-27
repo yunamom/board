@@ -73,7 +73,7 @@ ResultSet rs = stmt.executeQuery(sql);
     <div class="L">
     ∙ 게시물 총갯수 <%=total%> 개</div>
      <div class="R">
-   	<button type="button" onclick="location='reBoardWrite.jsp'">글쓰기</button></div>
+   	<button class="button" type="button" onclick="location='reBoardWrite.jsp'">글쓰기</button></div>
    	
 	<table class="table">		
 	<colgroup>
@@ -102,17 +102,16 @@ ResultSet rs = stmt.executeQuery(sql);
 			String re = "";
 			String space = "";
 			if(len > 1){
-				for(int i=0; i<len; i++){
-					space+="&nbsp;&nbsp;";
+				while(len>0){
+					space+="&nbsp;&nbsp;"; len--;
 				}
-				re=space+"[re]";
+				re=space+"<img src='../img/reply_icon.png'>";		
 			}
 		%>
 		<tr>
 			<td style="color:#848484"><%=rowNo%></td> 
 			<!-- unq 를 넣을수없는 이유는 번호가 삭제된 게시물을 건너띄고 나오기 때문이다.-->
-			<td align="left">
-		
+			<td align="left">			
 			<%=re%>
 			<a href="reBoardDetail.jsp?unq=<%=unq%>"><%=title %></a></td>
 			<td><%=name %></td>
