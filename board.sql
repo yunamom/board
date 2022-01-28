@@ -24,3 +24,16 @@ CREATE TABLE reboard (
 	gid int unsigned not null,
 	thread varchar(50) not null
 );
+
+
+CREATE TABLE memberInfo (
+	userid varchar(20) not null,
+    pass varchar(100) not null,
+    name varchar(20) not null,
+    birthday date not null,
+    gender char(1) not null,
+    mobile varchar(20),
+    zipcode varchar(6),
+    addr varchar(100),
+    rdate datetime
+);

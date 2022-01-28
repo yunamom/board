@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,27 +25,73 @@
 
 <script>
 function fn_submit(){
+	var f = document.frm;	
 	
-	if(document.frm.id.value == ""){
+	if(f.userid.value == ""){
 		alert("아이디를 입력해주세요.");
-		document.frm.id.focus();
+		f.userid.focus();
 		return false;
 	}
-	if(document.frm.pass.value == ""){
+	if(f.check.value == "0"){
+		alert("아이디 중복확인을 해주세요.");
+		f.userid.focus();
+		return false;
+	}	
+	if(f.pass.value == ""){
 		alert("비밀번호를 입력해주세요.");
-		document.frm.pass.focus();
+		f.pass.focus();
 		return false;
 	}
-	if(document.frm.name.value == ""){
+	if(f.pass.value != f.pass2.value){
+		alert("비밀번호를 확인해주세요.");
+		f.pass.focus();
+		return false;
+	}
+	if(f.name.value == ""){
 		alert("이름을 입력해주세요.");
-		document.frm.name.focus();
+		f.name.focus();
+		return false;
+	}
+		
+	document.frm.submit();
+	
+}
+function fn_idcheck(){  // id 중복체크
+	var userid = document.frm.userid.value;
+	var check = document.frm.check.value;
+	var replaced_id = userid.replace(/ /g,'');
+	
+	if(check == "1"){
+		document.frm.check.value = "0";
+		document.frm.userid.readOnly=false;
+		document.frm.button.value = "check ID";
+		return false;
+	}
+	if(userid == null || userid == ""){
+	
+		alert("아이디를 입력해주세요!");
+		return false;
+	}
+	if(replaced_id.length != userid.length){
+
+		alert("공백은 포함할수없습니다.");
+		return false;
+		
+	}
+	var idReg = /^[a-zA-Z]+[a-z0-9A-Z]{3,11}$/g;
+	
+	if(!idReg.test(userid)){
+		alert("아이디는 영 소문자로 시작하는 4~12자 영문자 또는 숫자 이어야합니다.");
 		return false;
 	}
 	
-	document.frm.submit();
+	
+	var url = "idcheck.jsp?userid="+userid+"&check="+check;
+	window.open(url,"중복아이디체크","width=300,height=200");
+	
 }
 function fn_onload(){
-	document.frm.id.focus();
+	document.frm.userid.focus();
 	document.frm.onload();
 }
 </script>
@@ -62,13 +109,20 @@ function fn_onload(){
 		<tr>
 			<th>아이디</th>
 			<td style="text-align:left">
-			<input type="text" name="id" required>
-			<button type="button">중복 체크</button>
+			
+			<input type="text" name="userid" required>
+			(영문 4자~12)
+			<input type="button" onclick="fn_idcheck()" name="button" value="check ID">
+			<input type="hidden" name="check" value="0"><!-- 중요합니다! 중복체크확인할수있는 변수를 생성 -->
 			</td>
 		</tr>
 		<tr>
 			<th>암호</th>
 			<td style="text-align:left"><input type="password" name="pass" required></td>
+		</tr>
+		<tr>
+			<th>암호확인</th>
+			<td style="text-align:left"><input type="password" name="pass2" required></td>
 		</tr>
 		<tr>
 			<th>이름</th>
@@ -104,6 +158,7 @@ function fn_onload(){
 		</tr>
 		
 		</table>
+	
 		<div class="view">
 			<button type="submit" onclick="fn_submit();return false;">저장</button>
 			<button type="reset">취소</button>
