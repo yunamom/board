@@ -42,14 +42,33 @@ function fn_submit(){
 		f.pass.focus();
 		return false;
 	}
+	if(f.pass.value.length < 4 ){
+		alert("비밀번호는 4자이상으로 입력해주세요.");
+		f.pass.focus();
+		return false;
+	}	
 	if(f.pass.value != f.pass2.value){
 		alert("비밀번호를 확인해주세요.");
-		f.pass.focus();
+		f.pass2.focus();
 		return false;
 	}
 	if(f.name.value == ""){
 		alert("이름을 입력해주세요.");
 		f.name.focus();
+		return false;
+	}
+	if(f.gender.value == ""){
+		alert("성별을 선택하세요.");
+		return false;
+	}
+	if(f.birthday.value == ""){
+		alert("생년월일을 입력해주세요.");
+		return false;
+	}
+	var reg_mobile = /^[0-9]{8,13}$/; //전화번호 숫자만
+	if(!reg_mobile.test(f.mobile.value)){
+		alert("전화번호를 확인해주세요.");
+		f.mobile.focus();
 		return false;
 	}
 		
@@ -81,13 +100,13 @@ function fn_idcheck(){  // id 중복체크
 	var idReg = /^[a-zA-Z]+[a-z0-9A-Z]{3,11}$/g;
 	
 	if(!idReg.test(userid)){
-		alert("아이디는 영 소문자로 시작하는 4~12자 영문자 또는 숫자 이어야합니다.");
+		alert("4~12자 영문자 또는 숫자 이어야합니다.");
 		return false;
 	}
 	
 	
 	var url = "idcheck.jsp?userid="+userid+"&check="+check;
-	window.open(url,"중복아이디체크","width=300,height=200");
+	window.open(url,"중복아이디체크","width=200,height=150");
 	
 }
 function fn_onload(){
@@ -100,7 +119,7 @@ function fn_onload(){
 <%@ include file="../include/topmenu.jsp" %>
 <div class="row">
 	<h2> Join Account </h2>
-	<form name="frm" method="post" action="#">
+	<form name="frm" method="post" action="memberWriteSave.jsp">
 		<table class="table" style="max-width:500px">
 		<colgroup>
 		<col width="25%">

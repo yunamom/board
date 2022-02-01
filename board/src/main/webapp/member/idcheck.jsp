@@ -52,11 +52,11 @@ int cnt = rs.getInt("cnt"); //중복아이디가있으면 1 없으면 0
 <link rel="stylesheet" href="../css/layout.css">
 </head>
 <body>
-<div class="row">
-<div style="padding-top:25%">
+
+<div style="padding-top:25%; text-align:center;">
 <%
 if(cnt==0){
-	out.print(userid+" 사용 가능한 아이디입니다:)");
+	out.print(userid+" 사용가능합니다.");
 %>
 	<script> //*중요 ! 부모창으로 아이디중복을 확인할수있는 check 값을 전달한다.
 			
@@ -71,9 +71,9 @@ if(cnt==0){
 	out.print("이미 사용중인 아이디입니다.");
 }
 %>
+<button onclick="self.close()">닫기</button>
 </div>
-<button type="button" onclick="self.close()">닫기</button>
 <!-- self.close() 창닫기  -->
-</div>
+
 </body>
 </html>
