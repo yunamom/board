@@ -12,6 +12,17 @@
   <a href="../board/reBoardList.jsp">∙ Q&A</a>
   <a href="#">∙ Chat</a>
   <a href="../board/game.jsp">∙ Game</a>
-  <a href="../member/loginWrite.jsp">∙ Login</a>
+  <%
+  String session_id = (String)session.getAttribute("SessionUserId");
+  if(session_id == null){
+  %>
+  <a href="../member/loginWrite.jsp">∙ Login</a>	  
   <a href="../member/memberWrite.jsp">∙ Join</a>
+  <%
+  }else{
+  %>
+  <a href="../member/logout.jsp">∙ Logout </a> 
+  <%
+  }
+  %>
 </div>

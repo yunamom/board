@@ -68,7 +68,7 @@ function fn_onload() {
 		</tr>
 		<tr>
 			<th>내용</th>
-			<td style="text-align:left">
+			<td style="text-align:left; font-size:20px;">
 			<textarea name="content" rows="10" cols="40" placeholder="내용을 입력하세요."></textarea>
 			<!-- rows 세로 cols 가로 -->
 			</td>

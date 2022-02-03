@@ -6,7 +6,11 @@
 <head>
 <meta charset="UTF-8">
 <title>Join Account</title>
-
+<style>
+td{
+	text-align:left;
+}
+</style>
 <link rel="stylesheet" href="../css/layout.css">
 <link rel="stylesheet" href="../css/jquery-ui.css">
   <link rel="stylesheet" href="/resources/demos/style.css">
@@ -127,7 +131,7 @@ function fn_onload(){
 		</colgroup>
 		<tr>
 			<th>아이디</th>
-			<td style="text-align:left">
+			<td>
 			
 			<input type="text" name="userid" required>
 			(영문 4자~12)
@@ -137,47 +141,45 @@ function fn_onload(){
 		</tr>
 		<tr>
 			<th>암호</th>
-			<td style="text-align:left"><input type="password" name="pass" required></td>
+			<td><input type="password" name="pass" required></td>
 		</tr>
 		<tr>
 			<th>암호확인</th>
-			<td style="text-align:left"><input type="password" name="pass2" required></td>
+			<td><input type="password" name="pass2" required></td>
 		</tr>
 		<tr>
 			<th>이름</th>
-			<td style="text-align:left"><input type="text" name="name" required></td>
+			<td><input type="text" name="name" required></td>
 		</tr>
 		<tr>
 			<th>성별</th>
-			<td>
+			<td style="">
 			<input type="radio" name="gender" value="M">남성
 			<input type="radio" name="gender" value="F">여성
 			</td>
 		</tr>
 		<tr>
 			<th>생일</th>
-			<td style="text-align:left">
+			<td>
 			<input type="text" name="birthday" id="birthday" required>
 			</td>
 		</tr>
 		<tr>
 			<th>핸드폰</th>
-			<td style="text-align:left">
+			<td>
 			<input type="text" name="mobile">
 			</td>
 		</tr>
 		<tr>
 			<th>주소</th> <!-- 우편번호,주소 -->
-			<td style="text-align:left">
+			<td>
 			<input type="text" name="zipcode">
 			<button type="button">우편번호찾기</button>
 			<input type="text" size="40" name="addr">
 			
 			</td>
-		</tr>
-		
-		</table>
-	
+		</tr>		
+		</table>	
 		<div class="view">
 			<button type="submit" onclick="fn_submit();return false;">저장</button>
 			<button type="reset">취소</button>

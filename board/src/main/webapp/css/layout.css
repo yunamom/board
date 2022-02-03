@@ -34,6 +34,7 @@ body {
 .topnav a:hover {
     background-color: #ddd;
     color: #454545;
+    border-radius:2rem;
 }
 /* Create three unequal columns that floats next to each other */
 .column {
@@ -68,6 +69,7 @@ body {
 	border-collapse: collapse;
 	border-top: 3px solid #9c6071;
 	margin: 0 auto;
+	
 }
 .table th {
 	color: #9c6071;
@@ -94,6 +96,10 @@ body {
 .table a:hover {
     background-color: #ddd;
     color: #454545;
+    border-radius:2rem;
+}
+textarea,input{
+	font-size:15px;
 }
 .img {
 	margin: 5%;

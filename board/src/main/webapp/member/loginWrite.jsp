@@ -30,7 +30,7 @@
 <%@ include file="../include/topmenu.jsp" %>
 <div class="row">
 	<h2> Login </h2>
-	<form name="frm" method="post" action="#">
+	<form name="frm" method="post" action="loginWriteSub.jsp">
 	
 	<table class="table" style="width:400px">
 		<tr>
