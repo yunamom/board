@@ -12,6 +12,6 @@
   <a href="../board/reBoardList.jsp">∙ Q&A</a>
   <a href="#">∙ Chat</a>
   <a href="../board/game.jsp">∙ Game</a>
-  <a href="#">∙ Login</a>
+  <a href="../member/loginWrite.jsp">∙ Login</a>
   <a href="../member/memberWrite.jsp">∙ Join</a>
 </div>
