@@ -3,6 +3,18 @@
 <%@ include file="../include/dbCon.jsp" %>
 
 <%
+
+String strReferer = request.getHeader("referer");
+if(strReferer == null){
+%>
+	<script>
+	alert("정상적인 경로를 통해 다시 접근해 주십시오.");
+	location='../main/index.jsp';
+	</script>
+<%
+	return;
+}
+
 String unq = request.getParameter("unq");
 String pass = request.getParameter("pass");
 %>
@@ -38,7 +50,6 @@ if(cnt==0){
 	return;
 }
 
-
 String sql = "SELECT ";
 	sql += " title,";
 	sql += " name,";
@@ -70,48 +81,13 @@ if(rs.next()){ //예외처리
 <html>
 <head>
 <meta charset="UTF-8">
-<title>게시글 수정</title>
+<title>∙ Board Modify ∙</title>
 <link rel="stylesheet" href="../css/layout.css">
 </head>
-
-<script>
-
-function fn_submit() {
-	var f = document.frm; 
-	
-	if(f.title.value == "") {
-		alert("제목을 입력해주세요.");
-		f.title.focus();
-		return false;
-	}
-	if(f.pass.value == "") {
-		alert("암호를 입력해주세요.");
-		f.pass.focus();
-		return false;
-	}
-	if(f.name.value == "") {
-		alert("이름을 입력해주세요.");
-		f.name.focus();
-		return false;
-	}
-	if(f.content.value == "") {
-		alert("내용을 입력해주세요.");
-		f.content.focus();
-		return false;
-	}
-	f.submit();
-	
-}
-function fn_onload() {
-	var f = document.frm;	
-	f.title.focus(); //제목에 커서를 준다.
-	f.onload();	
-}
-</script>
 <body onload="fn_onload()" >
 <%@ include file="../include/topmenu.jsp" %>
 <div class="row">
-    <h2>Main Content</h2>
+    <h2>∙ Board Modify ∙</h2>
 	<form name="frm" method="post" action="boardModifySave.jsp">
 	<input type="hidden" name="unq" value="<%=unq%>"> <!-- 키 값을 보내준다. -->
 	
@@ -122,22 +98,22 @@ function fn_onload() {
 	</colgroup>	
 		<tr>
 			<th>제목</th>
-			<td style="text-align:left"><input size="40" type="text" name="title" value="<%=title%>"></td>
+			<td style="text-align:left"><input size="30" type="text" name="title" value="<%=title%>"></td>
 		</tr>			
-		<tr>
-			<th>암호</th>
-			<td style="text-align:left"><input type="password" name="pass" required></td>
-		</tr>
-		<tr>
-			<th>이름</th>
-			<td style="text-align:left"><input type="text" name="name" value="<%=name%>"></td>
-		</tr>
 		<tr>
 			<th>내용</th>
 			<td style="text-align:left">
-			<textarea name="content" rows="10" cols="40"><%=content%></textarea>
+			<textarea name="content" rows="10" cols="30"><%=content%></textarea>
 			<!-- rows 세로 cols 가로 -->
 			</td>
+		</tr>
+		<tr>
+			<th>이름</th>
+			<td style="text-align:left"><input type="text" name="name" value="<%=name%>" readonly></td>
+		</tr>
+		<tr>
+			<th>암호</th>
+			<td style="text-align:left"><input type="password" name="pass" required></td>
 		</tr>
 	</table>
 		<div class="view"> <!-- 버튼과 테이블의 간격을 위해추가 -->
@@ -148,4 +124,5 @@ function fn_onload() {
 	</form>	
 </div>
 </body>
+<script src="../script/script.js"></script>
 </html>

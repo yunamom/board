@@ -12,11 +12,11 @@
   <div class="row"> 
   	<div class=img>
   		<a href="https://yunamom.github.io/lotto/">
-    	<img src="../img/lotto.jpeg"></a>
+    	<img src="../img/lotto.png"></a>
     	<h3><a href="https://github.com/yunamom/lotto">∙ github ∙<a></h3>
     	
     	<a href="https://yunamom.github.io/tictactoe/">
-    	<img src="../img/tictactoe.jpeg"></a>
+    	<img src="../img/tictactoe.png"></a>
     	<h3><a href="https://github.com/yunamom/tictactoe">∙ github ∙<a></h3>
   	</div>
   	

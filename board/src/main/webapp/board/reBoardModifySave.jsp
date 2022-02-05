@@ -19,7 +19,7 @@ if(unq == null || title == null || pass == null) {
 %>
 	<script>
 	alert("잘못된 경로입니다.");
-	location="boardList.jsp";
+	location="reBoardList.jsp";
 	</script>
 <%
 	return;

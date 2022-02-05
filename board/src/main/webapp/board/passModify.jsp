@@ -36,24 +36,9 @@ else if(gubun.equals("R")) {
 	<title>delete</title>
 	<link rel="stylesheet" href="../css/layout.css">
 </head>
-<script>
-function fn_submit(){
-	
-	var f = document.frm;
-	if(f.pass.value == ""){
-		alert("암호를 입력해주세요.");
-		f.pass.focus();
-		return false;
-	}
-	f.submit();
-}
-function fn_onload(){
-	//화면이 열릴 때 암호 입력상자로 커서를 이동시킴
-	document.frm.pass.focus();
-}
-</script>
+
 <!--  onload : 화면이 열릴 때 발생하는 이벤트 핸들러 속성-->
-<body onload="fn_onload()"> 
+<body onload='document.frm.pass.focus()'> 
 <%@ include file="../include/topmenu.jsp" %>
 <div class="row">
     <h2>pass Word</h2>
@@ -66,7 +51,7 @@ function fn_onload(){
 	</colgroup>	
 		<tr>
 			<th>password</th>
-			<td style="text-align:left"><input type="password" size="30" name="pass"></td>
+			<td style="text-align:left"><input type="password" size="20" name="pass"></td>
 		</tr>
 	</table>
 		<div class="view"><!-- 버튼과 테이블 간격을 위해 추가! -->
@@ -76,4 +61,5 @@ function fn_onload(){
 	</form>	
 </div>
 </body>
+<script src="../script/script.js"></script>
 </html>

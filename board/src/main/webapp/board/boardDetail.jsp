@@ -32,6 +32,8 @@ if(rs.next()){ //예외처리
 	pass = rs.getString("pass");
 	content = rs.getString("content");
 	// replace 
+	title = title.replaceAll("<[^>]*>","");
+	
 	content = content.replace("\n","<br>");
 	content = content.replace(" ","&nbsp;");
 	rdate = rs.getString("rdate");
@@ -49,7 +51,7 @@ if(rs.next()){ //예외처리
 <html>
 <head>
 <meta charset="UTF-8">
-<title>게시글작성</title>
+<title>∙ board Detail ∙</title>
 <link rel="stylesheet" href="../css/layout.css">
 <style>
 td{
@@ -60,7 +62,7 @@ text-align:left;
 <body>
 <%@ include file="../include/topmenu.jsp" %>
 <div class="row">
-    <h2>boardDetail</h2>
+    <h2>∙ board Detail ∙</h2>
 	<form name="frm" method="post" action="boardWriteSave.jsp">
 	<table class="table">		
 	<colgroup>
@@ -77,7 +79,7 @@ text-align:left;
 		</tr>
 		<tr>
 			<th>내용</th>
-			<td style="top:0px; height:100px">
+			<td style="top:0px; height:250px">
 			<!-- rows 세로 cols 가로 -->
 			<%=content %>
 			</td>
@@ -90,9 +92,11 @@ text-align:left;
 		</tr>
 	</table>
 		<div class="view">
-			<button type="button" onclick="location='passModify.jsp?unq=<%=unq%>'">수정</button>	
 			<button type="button" onclick="location='boardList.jsp'">목록</button>
+		<%if(session_id != null){ %>
+			<button type="button" onclick="location='passModify.jsp?unq=<%=unq%>'">수정</button>	
 			<button type="button" onclick="location='passWrite.jsp?unq=<%=unq%>'">삭제</button>
+		<%} %>
 		</div>
 	</form>	
 </div>

@@ -4,7 +4,7 @@
 <%@ include file="../include/dbCon.jsp" %>
 
 <%
-int p = 5; //한페이지에 보여질 게시물 갯수
+int p = 10; //한페이지에 보여질 게시물 갯수
 String view = request.getParameter("view");
 
 if(view == null){
@@ -53,24 +53,30 @@ String sql = " SELECT unq,";
 		sql+=" ORDER BY unq DESC LIMIT "+index+","+p+" ";
 	   
 ResultSet rs = stmt.executeQuery(sql);
+
 %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>메인</title>
+<title>∙ Board List ∙</title>
 	<link rel="stylesheet" href="../css/layout.css">
 </head>
 <body>
-
 <%@ include file="../include/topmenu.jsp" %>
 <div class="row">	
-    <h2>Main Content</h2>
+    <h2>∙ Board List ∙</h2>
     <div class="L">
     ∙ 게시물 총갯수 <%=total%> 개</div>
-     <div class="R">
-   	<button class="button" type="button" onclick="location='boardWrite.jsp'">글쓰기</button></div>
+     <div class="R">   
+   	<%
+   	if(session_id != null){
+   		userlocation="boardWrite.jsp";		
+   	}
+   	%>
+   	<button class="button" type="button" onclick="location='<%=userlocation%>'">
+   	글쓰기</button></div>
    	
 	<table class="table">		
 	<colgroup>
@@ -93,6 +99,8 @@ ResultSet rs = stmt.executeQuery(sql);
 			String name = rs.getString("name");
 			String rdate = rs.getString("rdate");
 			String hits = rs.getString("hits");	
+			
+			title = title.replaceAll("<[^>]*>","");
 		%>
 		<tr>
 			<td style="color:#848484"><%=rowNo%></td> 

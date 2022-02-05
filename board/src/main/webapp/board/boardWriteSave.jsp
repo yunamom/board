@@ -9,7 +9,8 @@ String pass = request.getParameter("pass");
 String name = request.getParameter("name");
 String content = request.getParameter("content");
 
-title = title.trim();
+
+title = title.replaceAll("<[^>]*>","");
 pass = pass.trim();
 %>
 <!-- 데이터 유효성 체크 -->

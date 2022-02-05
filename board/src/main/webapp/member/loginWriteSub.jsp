@@ -16,7 +16,7 @@ if(userid == null || pass == null){
 	return;
 }
 
-String sql = " SELECT count(*)cnt FROM memberinfo ";
+String sql = " SELECT count(*)cnt FROM memberInfo ";
        sql+= " WHERE userid = '"+userid+"' and pass = '"+pass+"' ";
        
 ResultSet rs = stmt.executeQuery(sql);
@@ -27,7 +27,7 @@ int cnt = rs.getInt("cnt");
 if(cnt==0){
 %>
 	<script>
-	alert("로그인실패!");
+	alert("아이디 & 비밀번호가 \n 일치하지 않습니다.");
 	history.back();
 	</script>
 <%
@@ -35,7 +35,7 @@ if(cnt==0){
 }else{
 	//로그인 세션 SessionUserId = "userid";
 	session.setAttribute("SessionUserId",userid);
-	session.setMaxInactiveInterval(60); // 세션의 지속시간 *초단위
+	session.setMaxInactiveInterval(600); // 세션의 지속시간 *초단위
 }
 %>
 	<script>

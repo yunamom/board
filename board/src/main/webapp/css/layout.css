@@ -6,20 +6,20 @@
 body {
     margin: 0;
     font-family: Fixedays;
-    color: #434343;
+    color: #555555;
 }
 /* Style the header */
 .header {
+	color: #bb899a;
     background-color: #f1f1f1;
     padding: 20px;
     text-align: center;
-    color: #454545;
     font-size: 20px;
 }
 /* Style the top navigation bar */
 .topnav {
     overflow: hidden;
-    background-color: #9c6071;
+    background-color: #bb899a;
 }
 /* Style the topnav links */
 .topnav a {
@@ -27,14 +27,12 @@ body {
     display: block;
     color: #f2f2f2;
     text-align: center;
-    padding: 14px 16px;
+    padding: 14px 15px;
     text-decoration: none;
 }
 /* Change color on hover */
 .topnav a:hover {
-    background-color: #ddd;
-    color: #454545;
-    border-radius:2rem;
+	color: #555555;
 }
 /* Create three unequal columns that floats next to each other */
 .column {
@@ -58,21 +56,19 @@ body {
 	color: #454545;
 }
 .column.middle a:hover{
-	color: #9c6071;
+	color: #bb899a;
 }
-
 /* 테이블 세팅 */
 .table {
 	position: flex;
 	width: 75%;
 	max-width: 750px;
 	border-collapse: collapse;
-	border-top: 3px solid #9c6071;
-	margin: 0 auto;
-	
+	border-top: 3px solid #bb899a;
+	margin: 0 auto;	
 }
 .table th {
-	color: #9c6071;
+	color: #bb899a;
 	background: #f1f1f1;
 	text-align: center;
 }
@@ -99,7 +95,8 @@ body {
     border-radius:2rem;
 }
 textarea,input{
-	font-size:15px;
+	font-size:17px;
+	color:#555555;
 }
 .img {
 	margin: 5%;
@@ -109,7 +106,7 @@ textarea,input{
 	color: #454545;
 }
 .img a:hover{
-	color: #9c6071;
+	color: #bb899a;
 }
 .img img{
 	width: 200px;
@@ -118,14 +115,15 @@ textarea,input{
 	border: 2px dotted #f1f1f1;
 }
 .img img:hover{
-	border: 2px dotted #9c6071;
+	border: 2px dotted #bb899a;
 }
 .button {
-	margin-top:20px;
+	margin-top: 20px;
+	cursor: pointer;
 }
 .L { /* 테이블위 왼쪽에 총게시물 갯수를 표현 */
 	position: flex;
-	font-size:10px;
+	font-size:9px;
 	color: #848484;
 	text-align:left;
 	width:75%;
@@ -140,8 +138,16 @@ textarea,input{
 	max-width:750px;
 	margin:0 auto;
 }
+.R a {/* 회원가입 링크 */
+	text-decoration: none;
+	color: #bb899a;	
+}
+.R a:hover {
+	color: #555555;
+}
 .view {
-	margin : 30px;
+	margin-top : 20px;
+	margin-bottom : 40px;
 }
 .view a{
 	text-decoration: none;
@@ -149,15 +155,31 @@ textarea,input{
 	margin : 10px;
 }
 .view a:hover {
-    background-color: #ddd;
     color: #454545;
+}
+.view button {
+	cursor: pointer;
+}
+.login {
+	width: 400px;	
+	overflow: auto;
+	border-radius: 0.5rem;	
+	color: white;
+	border: 0.1px solid white;
+	background-color: #bb899a;
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+	font-size: 25px;
+	cursor: pointer;
 }
 .row {
 	width: 100%;
 	height: 100%;
 	text-align: center;
-	color: #454545;
-
+	color: #555555;
+}
+.row h2{
+	margin-top:2em;
 }
 /* Clear floats after the columns */
 .row:after {
@@ -170,7 +192,7 @@ textarea,input{
     .column.side, .column.middle{
         width: 100%;
     }
-    .table, .L, .R{
+    .table,table, .L, .R{
     	width: 98%;
     	font-size: 90%;
     }

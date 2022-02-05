@@ -18,7 +18,7 @@ String sql = "SELECT ";
 	sql += " pass,";
 	sql += " content,";
 	sql += " DATE_FORMAT(rdate,'%Y년%m월%d일')rdate";
-	sql += " FROM reboard";
+	sql += " FROM reboard ";
 	sql += " WHERE unq = '"+unq+"' ";
 
 ResultSet rs = stmt.executeQuery(sql);
@@ -34,6 +34,9 @@ if(rs.next()){ //예외처리
 	name = rs.getString("name");
 	pass = rs.getString("pass");
 	content = rs.getString("content");
+	
+	title = title.replaceAll("<[^>]*>","");
+	
 	/*
 	content 부분에 \n 및 공백을 html 요소로 바꿈
 	\n : 화면에서 데이터 저장 시 줄바꿈의 결과로 DB에 저장된 기호 (안보임)
@@ -45,7 +48,7 @@ if(rs.next()){ //예외처리
 %>
 	<script>
 	alert("잘못된 접근입니다.");
-	location = "../main/main.jsp";
+	location = "../main/index.jsp";
 	</script>
 <%
 	return;
@@ -82,7 +85,7 @@ text-align:left;
 		</tr>
 		<tr>
 			<th>내용</th>
-			<td style="top:0px; height:100px">
+			<td style="top:0px; height:250px">
 			<!-- rows 세로 cols 가로 -->
 			<%=content %>
 			</td>
@@ -95,13 +98,19 @@ text-align:left;
 		</tr>
 	</table>
 		<div class="view">
-			<button type="button" onclick="location='reBoardWrite.jsp'">입력</button>
 			<button type="button" onclick="location='reBoardList.jsp'">목록</button>
+			<%
+			if(session_id != null){
+			%>
 			<button type="button" onclick="location='replyWrite.jsp?unq=<%=unq%>'">답변</button>
 			<!-- 현재 위치한 화면의 unq 값을 답변게시물 작성에 넘겨준다. -->
 			<button type="button" onclick="location='passModify.jsp?unq=<%=unq%>&gubun=R'">수정</button>	
 			<button type="button" onclick="location='passWrite.jsp?unq=<%=unq%>&gubun=R'">삭제</button>
-			<!-- 게시판과 답변 게시판의 unq 넘버를 구분하기위해 check=R attribute 를 작성해준다. -->
+			<!-- 게시판과 답변 게시판의 unq 넘버를 구분하기위해 check=R attribute 를 작성해준다. -->				
+				
+			<%
+			}		
+			%>
 		</div>
 </div>
 </body>

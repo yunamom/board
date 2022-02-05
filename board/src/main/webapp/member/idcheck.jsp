@@ -1,13 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    
+    pageEncoding="UTF-8"%>   
 <%@ include file="../include/dbCon.jsp" %>
-
 <%
+String strReferer = request.getHeader("referer");
+if(strReferer == null){
+%>
+	<script>
+	alert("정상적인 경로를 통해 다시 접근해 주십시오.");
+	location='../main/index.jsp';
+	</script>
+<%
+	return;
+}
+
+
 String userid = request.getParameter("userid"); //중복체크를 위한 id값
 String check = request.getParameter("check"); //중복확인후 다시 클릭했을때
-
-String replaced_id = userid.replace(" ","");
 
 
 if(userid == null || userid.trim().equals("")){
@@ -19,7 +27,7 @@ if(userid == null || userid.trim().equals("")){
 <%
 	return;
 }
-if(replaced_id.length() != userid.length()){
+if(userid.replace(" ","").length() != userid.length()){
 %>
 	<script>
 	document.write="공백은 포함할수없습니다.";
@@ -37,6 +45,7 @@ if(userid.length() < 4 || userid.length() > 12){
 <%
 	return;
 }
+
 String sql = " SELECT count(*) cnt FROM memberInfo ";
        sql+= " WHERE userid='"+userid+"' ";
        

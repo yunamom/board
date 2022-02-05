@@ -27,10 +27,17 @@
 <body>
 <%@ include file="../include/topmenu.jsp" %>
 <div class="row">
+<%
+  String main="";
+  if(session_id != null){
+	  main = session_id+" 님 환영합니다 !";
+  }
+%>
 	<div class="main">
 	<a href="https://yunamom.duckdns.org">
 	∙ Project File List ∙</a>
 	</div>
+	<div class="main"><%=main%></div>
 </div>
 <div class="footer">
   <p>by yunamom</p>

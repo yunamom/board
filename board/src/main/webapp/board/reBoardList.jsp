@@ -4,7 +4,7 @@
 <%@ include file="../include/dbCon.jsp" %>
 
 <%
-int p = 5; //한페이지에 보여질 게시물 갯수
+int p = 10; //한페이지에 보여질 게시물 갯수
 String view = request.getParameter("view");
 
 if(view == null){
@@ -69,11 +69,14 @@ ResultSet rs = stmt.executeQuery(sql);
 
 <%@ include file="../include/topmenu.jsp" %>
 <div class="row">	
-    <h2>Q & A Content</h2>
+    <h2>∙ Q & A Content ∙</h2>
     <div class="L">
     ∙ 게시물 총갯수 <%=total%> 개</div>
-     <div class="R">
-   	<button class="button" type="button" onclick="location='reBoardWrite.jsp'">글쓰기</button></div>
+    <div class="R">
+    <% if(session_id != null){
+    	userlocation = "reBoardWrite.jsp";
+    }%>
+   	<button class="button" type="button" onclick="location='<%=userlocation%>' ">글쓰기</button></div>
    	
 	<table class="table">		
 	<colgroup>
@@ -97,6 +100,9 @@ ResultSet rs = stmt.executeQuery(sql);
 			String rdate = rs.getString("rdate");
 			String hits = rs.getString("hits");
 			String thread = rs.getString("thread");
+			
+			title = title.replaceAll("<[^>]*>","");
+			
 			// a(원글) , (aa,ab,ac,ad ~)(답글), (aaa,aab,aac ~)(답글의 답글)
 			int len = thread.length();
 			String re = "";

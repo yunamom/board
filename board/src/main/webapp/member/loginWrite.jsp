@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Login</title>
+<title>∙ Login ∙</title>
 <link rel="stylesheet" href="../css/layout.css">
 </head>
 <script type="text/javascript">
@@ -28,30 +28,39 @@
 </script>
 <body onload="fn_onload()"> <!--아이디 입력창에 커서가 깜빡일수있게 한다.-->
 <%@ include file="../include/topmenu.jsp" %>
+<%
+if(session_id != null){
+	//로그인한 회원이 있을경우 접근할수없게 메인화면으로 이동합니다.
+%>
+	<script>
+	location="../main/index.jsp";	
+	</script>
+<%	return;
+}	
+%>
 <div class="row">
-	<h2> Login </h2>
+	
 	<form name="frm" method="post" action="loginWriteSub.jsp">
 	
-	<table class="table" style="width:400px">
-		<tr>
-			<th>아이디</th>
+	<table class="table" style="width:400px; margin-top:100px;">
+		<tr>	
 			<td style="text-align:left">
-			<input type="text" name="userid">
+			<input style="width:100%" type="text" name="userid" placeholder="Username">
  			</td>
 		</tr>
 		<tr>
-			<th>비밀번호</th>
 			<td style="text-align:left">
-			<input type="password" name="pass">
+			<input style="width:100%" type="password" name="pass" placeholder="Password">
  			</td>
 		</tr>
 	
 	</table>
-	<div class="view">
-		<button type="submit" onclick="fn_submit();return false;">로그인</button>
+	<div class="R" style="width:400px; padding-top:10px; padding-bottom:10px;">
+		<a href="memberWrite.jsp">Create account</a>
+	</div>	
+		<button class="login" type="submit" onclick="fn_submit();return false;">Sign in</button>
 		<!--Enter 에 반응이있는게 submit -->
-		<button type="button" onclick="location='memberWrite.jsp'">회원가입</button>
-	</div>
+	
 	</form>
 </div>
 <div class="footer">

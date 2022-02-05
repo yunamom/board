@@ -29,7 +29,7 @@ if(userid == null || pass == null || name == null || gender == null){
 <!-- 중복아이디 체크 -->
 <%
 String sql = " SELECT ";
-       sql+= " COUNT(*) cnt FROM memberinfo WHERE userid='"+userid+"' ";
+       sql+= " COUNT(*) cnt FROM memberInfo WHERE userid='"+userid+"' ";
 ResultSet rs = stmt.executeQuery(sql);
 rs.next();
 int cnt = rs.getInt("cnt");
@@ -53,7 +53,7 @@ if(cnt == 1){
 %>
 <!-- 저장SQL 작성 및 실행 -->
 <%
-String sql2 = " INSERT INTO memberinfo (";
+String sql2 = " INSERT INTO memberInfo (";
        sql2+= " userid,pass,name,gender,birthday,mobile,zipcode,addr,rdate) ";
        sql2+= " VALUES(";
        sql2+= " '"+userid+"',";
