@@ -19,7 +19,7 @@ if(unq == null || title == null || pass == null) {
 %>
 	<script>
 	alert("잘못된 경로입니다.");
-	location="reBoardList.jsp";
+	location="boardList.jsp";
 	</script>
 <%
 	return;
@@ -65,14 +65,14 @@ if(result==1){
 %>
 	<script>
 	alert("변경완료");
-	location="BoardList.jsp";
+	location="boardList.jsp";
 	</script>
 <%
 } else {
 %>
 	<script>
 	alert("변경실패\n관리자에게 연락해주세요.");
-	location="BoardList.jsp";
+	location="boardList.jsp";
 	</script>
 <% 
 }

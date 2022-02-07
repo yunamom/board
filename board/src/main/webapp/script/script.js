@@ -14,8 +14,7 @@ function fn_submit() {
 		if(value.trim() == ""){
 			alert(show[i]+"에 공백을확인하세요.");
 			check[i].focus();
-			return false;
-		}
+			return false;		}
 		
 	}
 	f.submit();
@@ -115,5 +114,9 @@ function fn_idcheck(){  // id 중복체크
 	
 	var url = "idcheck.jsp?userid="+userid+"&check="+check;
 	window.open(url,"중복아이디체크","width=200,height=150");
+}
+function fn_post(){ // 주소
+	var url = "post1.jsp";
+	window.open(url,"post","width=400,height=200");
 	
 }

@@ -106,8 +106,7 @@ text-align:left;
 			<!-- 현재 위치한 화면의 unq 값을 답변게시물 작성에 넘겨준다. -->
 			<button type="button" onclick="location='passModify.jsp?unq=<%=unq%>&gubun=R'">수정</button>	
 			<button type="button" onclick="location='passWrite.jsp?unq=<%=unq%>&gubun=R'">삭제</button>
-			<!-- 게시판과 답변 게시판의 unq 넘버를 구분하기위해 check=R attribute 를 작성해준다. -->				
-				
+			<!-- 게시판과 답변 게시판의 unq 넘버를 구분하기위해 check=R attribute 를 작성해준다. -->								
 			<%
 			}		
 			%>

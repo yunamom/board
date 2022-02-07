@@ -57,7 +57,8 @@ int cnt = rs.getInt("cnt"); //중복아이디가있으면 1 없으면 0
 <html>
 <head>
 <meta charset="UTF-8">
-<title>checkId</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>∙ checkId ∙</title>
 <link rel="stylesheet" href="../css/layout.css">
 </head>
 <body>

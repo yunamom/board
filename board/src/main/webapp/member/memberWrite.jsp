@@ -92,7 +92,7 @@ if(session_id != null){
 			<th>주소</th> <!-- 우편번호,주소 -->
 			<td>
 			<input type="text" name="zipcode">
-			<button style="cursor:pointer" type="button">우편번호찾기</button>
+			<button style="cursor:pointer" type="button" onclick="fn_post()" >우편번호찾기</button>
 			<input style="margin-top:10px" type="text" size="30" name="addr">
 			
 			</td>

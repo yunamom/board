@@ -42,7 +42,7 @@ if(unq == null){
 		</tr>
 		<tr>
 			<th>이름</th>
-			<td style="text-align:left"><input type="text" name="name" ></td>
+			<td style="text-align:left"><input type="text" name="name" value="<%=session_id%>" readonly></td>
 		</tr>
 		<tr>
 			<th>내용</th>
