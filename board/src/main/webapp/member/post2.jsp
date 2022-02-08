@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="java.util.*" %>
 <%@ include file="../include/dbCon.jsp" %>
 <%
 String strReferer = request.getHeader("referer");
@@ -25,16 +26,26 @@ if(state == null || address == null || state.trim() == "" || address.trim() == "
 	return;
 }
 
-String sqlCnt = " SELECT COUNT(*)cnt FROM "+state+" ";
+String sqlCnt = " SELECT idx FROM "+state+" ";
        sqlCnt+= " WHERE dong like '"+address+"%' ";
        sqlCnt+= " OR doro like '"+address+"%' ";
        sqlCnt+= " OR buildname like '"+address+"%' ";
+       sqlCnt+= " ORDER BY dong,doro,buildno1";
        
 ResultSet rsCnt = stmt.executeQuery(sqlCnt);
-rsCnt.next();
-int cnt = rsCnt.getInt("cnt");
 
-if(cnt == 0){
+ArrayList<Integer> idx = new ArrayList<Integer>();
+
+int cnt = -1;
+
+while(rsCnt.next()){
+	cnt++;
+	idx.add(rsCnt.getInt("idx"));
+}
+
+rsCnt.close();
+
+if(cnt < 0){
 %>
 	<script>	
 	location='../member/post1.jsp';
@@ -51,6 +62,9 @@ if(view == null){ //첫번째 페이지인 경우
 	view = "1"; 
 }
 int vpage = Integer.parseInt(view);
+int index = (vpage-1)*p;
+
+int next = idx.get(index);
 
 String sql = " SELECT ";
        sql+= " zipcode, ";
@@ -61,10 +75,7 @@ String sql = " SELECT ";
        sql+= " buildno1, ";
        sql+= " buildname ";
        sql+= " FROM "+state+" ";
-       sql+= " WHERE dong like '"+address+"%' ";
-       sql+= " OR doro like '"+address+"%' ";  
-       sql+= " OR buildname like '"+address+"%' ";
-       sql+= " ORDER BY sigungu,dong,doro,buildno1 ASC LIMIT 0,10 "; 
+       sql+= " WHERE idx >'"+next+"' and idx < '"+(next+p)+"' ";
        
 ResultSet rs = stmt.executeQuery(sql);
 
@@ -83,11 +94,16 @@ String post[] = {"zipcode","sido","sigungu","dong","doro","buildno1","buildname"
 
 <div style="padding:20%; text-align:center; background-color:#bb899a;">
 <form name = "frm" method = "post" action = "">
-총개수<%=cnt %>개
+총개수<%=cnt+1 %>개
 	<select name="address">
-		<%while(rs.next()){ 
-			String getpost = "";
-		for(int i=0; i<post.length; i++){
+		<%	idx.get(index);
+		int hi=idx.get(index);
+		hi+=10;
+		
+		while(rs.next()){ 
+			String getpost = "["+rs.getString(post[0])+"] ";
+			//우편번호
+		for(int i=1; i<post.length; i++){
 			getpost += rs.getString(post[i])+" ";
 		%>
 		<%
@@ -98,7 +114,7 @@ String post[] = {"zipcode","sido","sigungu","dong","doro","buildno1","buildname"
 		}
 		%>
 	</select>
-	<button type="submit">적용</button>
+	<button type="submit" onclick="fn_action()">적용</button>
 	<button type="button" onclick="location='post1.jsp'">뒤로가기</button>		
 </form>
 <%} %>

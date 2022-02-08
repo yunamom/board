@@ -110,13 +110,35 @@ function fn_idcheck(){  // id 중복체크
 		alert("4~12자 영문자 또는 숫자 이어야합니다.");
 		return false;
 	}
-	
+	var w  = window.screen.width/2 -150;
+	var h = window.screen.height/2 - 100;
 	
 	var url = "idcheck.jsp?userid="+userid+"&check="+check;
-	window.open(url,"중복아이디체크","width=200,height=150");
+	window.open(url,"page","width=400,height=200,left="+w+",top="+h ); //left and top 으로 창의 위치를 설정할수있습니다.
+	//팝업이름을 똑같이 하면 새창으로 열리지않고 그이름을 가진곳에 열린다. 없으면 새창으로 열린다. 
 }
+
 function fn_post(){ // 주소
 	var url = "post1.jsp";
-	window.open(url,"post","width=400,height=200");
 	
+	var w  = window.screen.width/2 -150;
+	var h = window.screen.height/2 - 100;
+	
+	window.open(url,"page","width=400,height=200,left="+w+",top="+h );
+
+}
+function fn_action(){ // 우편번호 넣기 
+	var addr = document.frm.address.value;//post2.jsp 에서 받아온주소
+	
+	var array = addr.split(" "); //주소를 나누어준다.
+	var zipcode = array[0].substring(1,array[0].length-1);
+	var address = addr.replace(array[0],"");
+	//우편번호를 뺸 나머지 주소를 넣은 변수를 생성한다.
+	//alert(zipcode);
+	//alert(address);
+	opener.document.frm.zipcode.value = zipcode; //회원가입화면 주소 input 값으로 보내준다.
+	opener.document.frm.addr.value = address;
+	
+	self.close();
+	//주소검색 창을 닫아준다.
 }
