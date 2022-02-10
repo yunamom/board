@@ -1,5 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="com.Cookies" %>
+<%
+String cookie_id = "";
+String cookie_chk = "";
+
+Cookies cookies = new Cookies(request); //쿠키 객체화 
+if(cookies.exists("CookieUserId") && !cookies.getValue("CookieUserId").equals("")){
+//쿠키 변수의 존재유무를 확인합니다.
+	cookie_id = cookies.getValue("CookieUserId");
+	cookie_chk = "checked";
+}
+%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -45,19 +58,24 @@ if(session_id != null){
 	<table class="table" style="width:400px; margin-top:100px;">
 		<tr>	
 			<td style="text-align:left">
-			<input style="width:100%" type="text" name="userid" placeholder="Username">
+			<input style="width:100%" type="text" name="userid" placeholder="Username" value="<%=cookie_id%>">
  			</td>
 		</tr>
 		<tr>
-			<td style="text-align:left">
+			<td style="text-align:left;">
 			<input style="width:100%" type="password" name="pass" placeholder="Password">
  			</td>
-		</tr>
-	
+		</tr>	
 	</table>
-	<div class="R" style="width:400px; padding-top:10px; padding-bottom:10px;">
+	<div style="padding:5px;"> <!-- 사이 간격을 위해 div 로 묶어준다. -->
+	<div class="L" style="width:400px; font-size:13px;" >
+		<input type="checkbox" name="idcheck" value="1" <%=cookie_chk %>>ID remember
+		<!-- 쿠키 박스 -->
+	</div>
+	<div class="R" style="width:400px; margin-top:20px;  ">
 		<a href="memberWrite.jsp">Create account</a>
-	</div>	
+	</div>
+	</div>
 		<button class="login" type="submit" onclick="fn_submit();return false;">Sign in</button>
 		<!--Enter 에 반응이있는게 submit -->
 	
