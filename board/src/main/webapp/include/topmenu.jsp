@@ -18,7 +18,7 @@
   <a href="../main/index.jsp">∙ Main</a>
   <a href="../board/boardList.jsp">∙ Board</a>
   <a href="../board/reBoardList.jsp">∙ Q&A</a>
-
+ 
   <a href="../board/game.jsp">∙ Game</a>
   <%
   String session_id = (String)session.getAttribute("SessionUserId");
@@ -27,6 +27,7 @@
   if(session_id == null){
   %>
   <a href="../member/loginWrite.jsp">∙ Login</a>
+  <a href="../plan/planList.jsp">∙ Calendar</a>
   <%
   }else{ //로그인 했을 경우의 상황
   %>

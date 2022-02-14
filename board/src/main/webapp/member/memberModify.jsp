@@ -18,7 +18,7 @@ if(strReferer == null){
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Modify</title>
+<title>∙ Modify ∙</title>
 <style>
 td{
 	text-align:left;

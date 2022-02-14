@@ -51,8 +51,7 @@ if(session_id != null){
 <%	return;
 }	
 %>
-<div class="row">
-	
+<div class="row">	
 	<form name="frm" method="post" action="loginWriteSub.jsp">
 	
 	<table class="table" style="width:400px; margin-top:100px;">
@@ -81,8 +80,6 @@ if(session_id != null){
 	
 	</form>
 </div>
-<div class="footer">
-  <p>by yunamom</p>
-</div>
+<footer>by yunamom</footer>
 </body>
 </html>

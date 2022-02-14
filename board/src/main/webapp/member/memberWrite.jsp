@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Join Account</title>
+<title>∙ Join Account ∙</title>
 <style>
 td{
 	text-align:left;

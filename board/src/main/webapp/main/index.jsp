@@ -39,8 +39,6 @@
 	</div>
 	<div class="main"><%=main%></div>
 </div>
-<div class="footer">
-  <p>by yunamom</p>
-</div>
+<footer>by yunamom</footer>
 </body>
 </html>

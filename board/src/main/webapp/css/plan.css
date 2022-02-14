@@ -1,0 +1,134 @@
+@charset "UTF-8";
+* {
+    box-sizing: border-box;
+}
+body{
+	margin: 0;
+	color:#666666;
+	font-family: Fixedays;
+	font-size: 17px;
+	text-align: center;
+}
+#wrapper{
+  margin: 30px;
+  max-width: 40em;
+  min-height: 40em;
+}
+header{
+	height: 60px;
+	line-height: 60px;
+}
+section{
+	display: flex;
+	justify-content: center;
+	overflow: hide;
+}
+a{
+	text-decoration: none;
+	color: #666666;
+}
+a:hover{
+	color: white;
+}
+.table{
+	width: 450px;
+}
+/*th{
+	padding: 1.3em;
+	border-collapse: collapse;
+	border-radius:0.5em;
+	background-color: #bb899a;
+	color: white;
+}
+td{
+	margin: 20em;
+	padding: 1.3em;
+	border-collapse: collapse;
+	border-radius: 0.5em;
+	border: 1px solid #f1f1f1;
+	color:#bb899a;
+}*/
+.table th{
+	padding: 1em;
+}
+.table td{
+	padding: 1.3em;
+}
+td:hover{
+	cursor: pointer;
+	background-color: #bb899a;
+	color:white;
+}
+button{
+	margin: 30px;
+	width: 45px;
+	height: 30px;
+	border-collapse: collapse;
+	border-radius: 0.7em;
+	border: 0;
+	background-color: #bb899a;	
+	color:white;
+}
+button:hover{
+	cursor: pointer;
+	background-color: white;
+	color:#bb899a;
+}
+.Box{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-right:10px;
+	margin-left:10px;
+}
+/*select box 꾸미기*/
+.selectBox {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	width: 140px;
+	height: 30px;
+	margin: 30px;
+	border-radius: 1em;
+}
+.selectBox .select {
+	width: inherit;
+	height: inherit;
+	background: transparent;
+	border: 0 none;
+	outline: 0 none;
+	padding: 0 5px;
+	position: relative;
+	z-index: 3;
+}
+.selectBox .select option {
+	color: #fff;
+	padding: 3px 0;
+	font-size: 16px;
+}
+.selectBox .icoArrow {
+	position: absolute;
+	top: 0;
+	right: 0;
+	z-index: 1;
+	height: inherit;	
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.selectBox .icoArrow img {
+	width: 40%;
+	transition: .3s;  /*회전*/
+}
+.selectBox .select:focus + .icoArrow img{
+	transform: rotate(180deg);
+}
+.select:hover {
+	cursor: pointer;
+}
+/* Clear floats after the columns */
+#wrapper:after {
+    content: "";
+    display: table;
+    clear: both;
+}
