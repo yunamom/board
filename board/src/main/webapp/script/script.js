@@ -142,11 +142,3 @@ function fn_action(){ // 우편번호 넣기
 	self.close();
 	//주소검색 창을 닫아준다.
 }
-function fn_planWrite(){
-	var url = "planWrite.jsp";
-	
-	var w  = (window.screen.width/2) - 200;
-	var h = (window.screen.height/2) - 200;
-	
-	window.open(url,"planWrite","width=500,height=450,left="+w+",top="+h );
-}

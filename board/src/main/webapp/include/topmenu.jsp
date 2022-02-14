@@ -34,6 +34,7 @@
   <div class="modify">
   <a href="../member/memberModify.jsp">∙ <%=session_id%></a>
   </div>
+  <a href="../plan/planList.jsp">∙ Calendar</a>
   <a href="../member/logout.jsp">∙ Logout </a> 
   <%
   }

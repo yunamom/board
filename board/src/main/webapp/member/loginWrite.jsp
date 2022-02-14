@@ -10,6 +10,9 @@ if(cookies.exists("CookieUserId") && !cookies.getValue("CookieUserId").equals(""
 //쿠키 변수의 존재유무를 확인합니다.
 	cookie_id = cookies.getValue("CookieUserId");
 	cookie_chk = "checked";
+}else{
+	cookie_id = "";
+	cookie_chk = "";
 }
 %>
 
@@ -75,7 +78,7 @@ if(session_id != null){
 		<a href="memberWrite.jsp">Create account</a>
 	</div>
 	</div>
-		<button class="login" type="submit" onclick="fn_submit();return false;">Sign in</button>
+		<input class="login" type="submit" onclick="fn_submit();return false;" value="Sign in">
 		<!--Enter 에 반응이있는게 submit -->
 	
 	</form>

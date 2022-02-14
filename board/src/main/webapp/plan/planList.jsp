@@ -2,6 +2,18 @@
     pageEncoding="UTF-8"%>
 <%@ page import="java.util.*" %>
 <%
+String strReferer = request.getHeader("referer");
+if(strReferer == null){ 
+//비정상적인 URL 접근차단을 위해 request.getHeader("referer") 메소드를 사용하였습니다.
+%>
+	<script>
+	alert("정상적인 경로를 통해 다시 접근해 주십시오.");
+	location="../main/index.jsp";
+	</script>
+<%
+	return;
+}
+
 String yy = request.getParameter("y"); 
 String mm = request.getParameter("m"); 
 
@@ -40,24 +52,34 @@ if(after_m > 12){
 <html>
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>∙ <%=y %>년 <%=m+1 %>월 ∙</title>
-<link rel="stylesheet" href="../css/layout.css">
 <link rel="stylesheet" href="../css/plan.css">
+
 </head>
 <body>
 <%@ include file="../include/topmenu.jsp" %>
+<%
+if(session_id == null || session_id.equals("")){
+%>
+	<script>
+	alert("로그인 이후에 이용가능합니다.");
+	location="../member/loginWrite.jsp";
+	
+	</script>
+<%
+	return;
+}
+%>
 <form name="frm" method="post" action="planList.jsp">
 <!-- 데이터를 자기자신에게 넘길수있게한다.-->
 </form>
 <section>
-<div id="wrapper">
+<div class="row">
 	<table class="table">
 		<caption>
-<div class="Box">
-		<button type="button" onclick="location='planList.jsp?y=<%=before_y%>&m=<%=before_m%>'">
-		<%=before_m%>월</button>
 <div class="selectBox">
+		<button style="margin-right:20px"type="button" onclick="location='planList.jsp?y=<%=before_y%>&m=<%=before_m%>'">
+		<%=before_m%>월</button>
 	<select name="year" class="select" onchange="if(this.value) location.href=(this.value)">
 		<%int test=0;
 		for(int y1=(thisY-10); y1<=(thisY+10); y1++){
@@ -68,7 +90,6 @@ if(after_m > 12){
 		}
 		%>
 	</select>
-	<span class="icoArrow"><img src="../img/img.png"></span>
 	<select name="month" class="select" onchange="if(this.value) location.href=(this.value)">
 		<%
 		for(int m1=0; m1<12; m1++){
@@ -79,10 +100,10 @@ if(after_m > 12){
 		}
 		%>
 	</select>	
-</div>
-		<button type="button" onclick="location='planList.jsp?y=<%=after_y%>&m=<%=after_m%>'">
+		<button style="margin-left:20px"type="button" onclick="location='planList.jsp?y=<%=after_y%>&m=<%=after_m%>'">
 		<%=after_m%>월</button>
 </div>
+
 		</caption>
 		<tr>
 			<th>일</th>

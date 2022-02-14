@@ -88,7 +88,7 @@ body {
 	text-align: center;
 }
 .table th, .table td {
-	padding: 8px;
+	padding: 10px;
 	border: 1px solid #ddd;
 }
 .table th:first-child, .table td:first-child {
@@ -202,6 +202,8 @@ textarea,input{
 	font-size: 25px;
 	cursor: pointer;
 }
+/*plan*/
+
 .row {
 	width: 100%;
 	min-height: 45em;
@@ -223,7 +225,7 @@ textarea,input{
         width: 100%;
     }
     .table,table, .L, .R{
-    	width: 98%;
+    	width: 90%;
     	font-size: 90%;
     }
 }

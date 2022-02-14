@@ -13,7 +13,8 @@
   	<div class=img>
   		<a href="https://yunamom.github.io/lotto/">
     	<img src="../img/lotto.png"></a>
-    	
+    </div>
+    <div class=img>	
     	<a href="https://yunamom.github.io/tictactoe/">
     	<img src="../img/tictactoe.png"></a>
   	</div>
