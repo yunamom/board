@@ -35,10 +35,11 @@ switch(days){
 	case 6 : daysOfweek = "금"; break;
 	case 7 : daysOfweek = "토"; break;
 }				
-
 String pdate = year+"년 "+month+"월 "+date+"일 "+daysOfweek+"요일";
 
-
+String planDate = year+"";
+       planDate+= (month < 10)?"0"+month:month+"";
+       planDate+= (date < 10)?"0"+date:date+"";
 %>
 <!DOCTYPE html>
 <html>
@@ -65,18 +66,19 @@ textarea{
 	<input type="hidden" name="unq" value="">
 	<table class="table">		
 		<tr>
-			<td><input type="text"name="title" placeholder="제목"></td>
+			<td><input type="text"name="title" placeholder="제목" required></td>
 		</tr>
 		<tr>
-			<td><textarea name="content" placeholder="내용"></textarea></td>
+			<td><textarea name="content" placeholder="내용" required></textarea></td>
 		</tr>
 	</table>
 		<div class="view">
-			<input type="hidden"name="pdate" value="<%=pdate %>">	
-			<button type="submit" onclick="location=''">저장</button>	
+			<input type="hidden"name="pdate" value="<%=planDate%>">	
+			<button type="submit" onclick="fn_plan()">저장</button>	
 			<button type="button" onclick="self.close()">취소</button>
 		</div>
 	</form>
 </div>
 </body>
+<script src="../script/script.js"></script>
 </html>

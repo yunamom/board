@@ -123,12 +123,12 @@ if(session_id == null || session_id.equals("")){
 		}
 		for(int day=1; day<=lastday; day++){
 			count++;
-			String border=(d == day)?"2px solid #bb899a":"";
+			String border=(d == day)?"background-color:#d6a6b9":"";
 			String color=(count%7==1)?"#b56161":(count%7==0)?"#677793":"";
 			//요일 구하기
 			
 		%>	<td onClick="window.open('planWrite.jsp?y=<%=y%>&m=<%=m+1%>&d=<%=day%>&w=<%=dayOfweek %>','Diary','width=400,height=500')"
-			style="color:<%=color%>; border:<%=border%>;"><%=day%></td>
+			style="color:<%=color%>;<%=border%>;"><%=day%></td>
 		<%
 			if(count%7==0){
 				out.print("</tr><tr>");
