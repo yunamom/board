@@ -48,7 +48,7 @@ if(cnt==0){
 	}else{
 		response.addCookie(Cookies.createCookie("CookieUserId","","/",0));			
 	}
-	session.setMaxInactiveInterval(600); // 세션의 지속시간 *초단위
+	session.setMaxInactiveInterval(6000); // 세션의 지속시간 *초단위
 }
 %>
 	<script>

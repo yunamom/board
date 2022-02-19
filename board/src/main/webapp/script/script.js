@@ -142,3 +142,14 @@ function fn_action(){ // 우편번호 넣기
 	self.close();
 	//주소검색 창을 닫아준다.
 }
+function fn_detail(diary){ //planList.jsp 에서 날짜 매개변수를 받아온다.
+	var url = "planView.jsp?diary="+diary;
+	
+	window.open(url,"planView","width=400,height=500");	
+}
+function fn_modify(){
+	
+}
+function fn_delete(){
+	
+}

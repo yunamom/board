@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="java.util.*" %>
+<%@ include file="../include/dbCon.jsp" %>
 <%
 String strReferer = request.getHeader("referer");
 if(strReferer == null){ 
@@ -123,13 +124,29 @@ if(session_id == null || session_id.equals("")){
 		}
 		for(int day=1; day<=lastday; day++){
 			count++;
-			String border=(d == day)?"background-color:#d6a6b9":"";
 			String color=(count%7==1)?"#b56161":(count%7==0)?"#677793":"";
 			//요일 구하기
 			
-		%>	<td onClick="window.open('planWrite.jsp?y=<%=y%>&m=<%=m+1%>&d=<%=day%>&w=<%=dayOfweek %>','Diary','width=400,height=500')"
-			style="color:<%=color%>;<%=border%>;"><%=day%></td>
-		<%
+			//저장된 글 표시하기
+			String diary = y+"-"+(m+1)+"-"+day;
+			String d_sql = " SELECT count(*)cnt from plan ";
+			       d_sql+= " WHERE userid = '"+session_id+"' ";
+			       d_sql+= " AND pdate = '"+diary+"' ";
+			ResultSet d_rs = stmt.executeQuery(d_sql);
+			d_rs.next();
+			int cnt = d_rs.getInt("cnt");
+			
+			if(cnt == 1){
+			%>
+				<td style="background-color:pink" onClick="javascript:fn_detail('<%=diary%>')">
+				<%=day%></td>
+				<!-- 날짜를 클릭했을때 함수가 실행되면서 diary 값을 보내준다. -->
+			<%
+			}else{
+			%>	<td onClick="window.open('planWrite.jsp?y=<%=y%>&m=<%=m+1%>&d=<%=day%>&w=<%=dayOfweek %>','Diary','width=400,height=500')"
+			style="color:<%=color%>;"><%=day%></td>
+			
+			<%}
 			if(count%7==0){
 				out.print("</tr><tr>");
 				count=0;

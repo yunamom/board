@@ -77,7 +77,7 @@ body {
 .table {
 	position: flex;
 	margin: 0 auto;	
-	width: 70%;
+	width: 60%;
 	max-width: 700px;
 	border-collapse: collapse;
 	border-top: 3px solid #bb899a;
