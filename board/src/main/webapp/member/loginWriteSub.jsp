@@ -7,7 +7,8 @@ String userid = request.getParameter("userid");
 String pass = request.getParameter("pass");
 
 String idcheck = request.getParameter("idcheck");
-//아이디 기억하기 체크박스 쿠키쿠키
+String pwcheck = request.getParameter("pwcheck");
+//아이디/비번 기억하기 체크박스 쿠키쿠키
 
 if(userid == null || pass == null){
 %>
@@ -48,10 +49,14 @@ if(cnt==0){
 	}else{
 		response.addCookie(Cookies.createCookie("CookieUserId","","/",0));			
 	}
+	if(pwcheck != null){
+		response.addCookie(Cookies.createCookie("CookieUserPw",pass,"/",-1));				
+	}else{
+		response.addCookie(Cookies.createCookie("CookieUserPw","","/",0));		
+	}
 	session.setMaxInactiveInterval(6000); // 세션의 지속시간 *초단위
 }
 %>
 	<script>
-	alert("<%=userid%> 님 환영합니다.");
 	location="../main/index.jsp";
 	</script>

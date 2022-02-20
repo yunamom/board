@@ -2,9 +2,10 @@
     pageEncoding="UTF-8"%>
 <%@ page import="java.util.*" %>
 <%@ include file="../include/dbCon.jsp" %>
+<%@ include file="../include/certificate.jsp" %>
 <%
 String strReferer = request.getHeader("referer");
-if(strReferer == null){ 
+if(USERID == null || strReferer == null){ 
 //비정상적인 URL 접근차단을 위해 request.getHeader("referer") 메소드를 사용하였습니다.
 %>
 	<script>
@@ -14,7 +15,6 @@ if(strReferer == null){
 <%
 	return;
 }
-
 String yy = request.getParameter("y"); 
 String mm = request.getParameter("m"); 
 
@@ -136,9 +136,9 @@ if(session_id == null || session_id.equals("")){
 			d_rs.next();
 			int cnt = d_rs.getInt("cnt");
 			
-			if(cnt == 1){
+			if(cnt > 0){
 			%>
-				<td style="background-color:pink" onClick="javascript:fn_detail('<%=diary%>')">
+				<td style="background-color:#f1f1f1; opacity:0.7;" onClick="javascript:fn_detail('<%=diary%>')">
 				<%=day%></td>
 				<!-- 날짜를 클릭했을때 함수가 실행되면서 diary 값을 보내준다. -->
 			<%

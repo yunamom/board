@@ -1,9 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="java.util.*" %>
+<%@ include file="../include/certificate.jsp" %>
 <%
 String strReferer = request.getHeader("referer");
-if(strReferer == null){ 
+if(USERID == null || strReferer == null){ 
 //비정상적인 URL 접근차단을 위해 request.getHeader("referer") 메소드를 사용하였습니다.
 %>
 	<script>
@@ -13,7 +14,6 @@ if(strReferer == null){
 <%
 	return;
 }
-
 Calendar cal = Calendar.getInstance();
 
 request.setCharacterEncoding("UTF-8");
@@ -35,11 +35,11 @@ switch(days){
 	case 6 : daysOfweek = "금"; break;
 	case 7 : daysOfweek = "토"; break;
 }				
-String pdate = year+"년 "+month+"월 "+date+"일 "+daysOfweek+"요일";
+String week = year+"년 "+month+"월 "+date+"일 "+daysOfweek+"요일";
 
-String planDate = year+"";
-       planDate+= (month < 10)?"0"+month:month+"";
-       planDate+= (date < 10)?"0"+date:date+"";
+String pdate = year+"";
+       pdate+= (month<10)?"0"+month:month;
+       pdate+= (date<10)?"0"+date:date;
 %>
 <!DOCTYPE html>
 <html>
@@ -59,7 +59,7 @@ textarea{
 </head>
 <body onload='document.frm.title.focus()'>
 <div class="header" style="background-color:white">
-  <h2><%=pdate%>✱</h2>
+  <h2><%=week%>✱</h2>
 </div>
 <div align="center">
 	<form name="frm" method="post" action="planWriteSave.jsp">
@@ -73,8 +73,10 @@ textarea{
 		</tr>
 	</table>
 		<div class="view">
-			<input type="hidden"name="pdate" value="<%=planDate%>">	
-			<button type="submit" onclick="fn_plan()">저장</button>	
+		
+			<input type="hidden"name="pdate" value="<%=pdate%>">	
+			<input type="hidden"name="week" value="<%=week%>">	
+			<button type="submit" onclick="fn_plan(); return false;">저장</button>	
 			<button type="button" onclick="self.close()">취소</button>
 		</div>
 	</form>

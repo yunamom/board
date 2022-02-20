@@ -142,14 +142,28 @@ function fn_action(){ // 우편번호 넣기
 	self.close();
 	//주소검색 창을 닫아준다.
 }
+function fn_plan(){
+	var f = document.frm;
+	var check = [f.title,f.content,f.name,f.pass];
+	for(var i=0; i<check.length; i++){
+		if(check[i].value == null){
+			check[i].focus();
+			return false;
+		}
+	}
+}
 function fn_detail(diary){ //planList.jsp 에서 날짜 매개변수를 받아온다.
-	var url = "planView.jsp?diary="+diary;
+	var url = "planView.jsp?pdate="+diary;
 	
 	window.open(url,"planView","width=400,height=500");	
 }
-function fn_modify(){
-	
+function fn_modify(diary){ //planView.jsp 에서 날짜 매개변수를 받아온다.
+	location = "planModify.jsp?pdate="+diary;
 }
-function fn_delete(){
+function fn_delete(diary){ //planView.jsp 에서 날짜 매개변수를 받아온다.
+	if(confirm("정말 삭제하시겠습니까?")){
+		location = "planDelete.jsp?pdate="+diary;
+		
+	}
 	
 }

@@ -3,17 +3,27 @@
 <%@ page import="com.Cookies" %>
 <%
 String cookie_id = "";
-String cookie_chk = "";
+String cookie_pw = "";
+String check_id = "";
+String check_pw = "";
 
 Cookies cookies = new Cookies(request); //쿠키 객체화 
 if(cookies.exists("CookieUserId") && !cookies.getValue("CookieUserId").equals("")){
 //쿠키 변수의 존재유무를 확인합니다.
 	cookie_id = cookies.getValue("CookieUserId");
-	cookie_chk = "checked";
+	check_id = "checked";
 }else{
-	cookie_id = "";
-	cookie_chk = "";
+	cookie_id = "";	
+	check_id = "";
 }
+if(cookies.exists("CookieUserPw") && !cookies.getValue("CookieUserPw").equals("")){
+	//쿠키 변수의 존재유무를 확인합니다.
+		cookie_pw = cookies.getValue("CookieUserPw");
+		check_pw = "checked";
+	}else{
+		cookie_pw = "";
+		check_pw = "";
+	}
 %>
 
 <!DOCTYPE html>
@@ -65,13 +75,14 @@ if(session_id != null){
 		</tr>
 		<tr>
 			<td style="text-align:left;">
-			<input style="width:100%" type="password" name="pass" placeholder="Password">
+			<input style="width:100%" type="password" name="pass" placeholder="Password" value="<%=cookie_pw%>">
  			</td>
 		</tr>	
 	</table>
-	<div style="padding:5px;"> <!-- 사이 간격을 위해 div 로 묶어준다. -->
+	<div style="padding:10px;"> <!-- 사이 간격을 위해 div 로 묶어준다. -->
 	<div class="L" style="width:400px; font-size:13px;" >
-		<input type="checkbox" name="idcheck" value="1" <%=cookie_chk %>>ID remember
+		<input type="checkbox" name="idcheck" value="1" <%=check_id %>>ID
+		<input type="checkbox" name="pwcheck" value="1" <%=check_pw %>>PW remember
 		<!-- 쿠키 박스 -->
 	</div>
 	<div class="R" style="width:400px; margin-top:20px;  ">

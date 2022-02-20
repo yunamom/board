@@ -14,46 +14,30 @@ if(USERID == null || strReferer == null){
 <%
 	return;
 }
-String pdate = request.getParameter("pdate");
+
+String unq = request.getParameter("unq");
 String title = request.getParameter("title");
 String content = request.getParameter("content");
-String week = request.getParameter("week");
 
-content = content.replace("\r\n","<br>");
+String sql = " UPDATE plan ";
+       sql+= " SET title = '"+title+"', ";
+       sql+= " content = '"+content+"' ";
+       sql+= " WHERE unq = '"+unq+"' ";
 
-if(pdate == null || title == null || content == null || week == null){
-%>
-	<script>
-	alert("다시 확인해주세요.");
-	history.back();
-	</script>
-<%
-	return;
-}
-
-String sql = " INSERT INTO plan(userid,pdate,title,content,week) ";
-       sql+= " VALUES('"+USERID+"',";
-       sql+= " '"+pdate+"',";
-       sql+= " '"+title+"',";
-       sql+= " '"+content+"',";
-       sql+= " '"+week+"')";
 int result = stmt.executeUpdate(sql);
-
-if(result == 1){
-%>
+if(result > 0){
+	%>
 	<script>
-	alert("일정 저장완료!");
+	alert("수정완료.");
 	self.close();
-	opener.location = "planList.jsp";
 	</script>
-<%
+	<%
 }else{
-%>
+	%>
 	<script>
-	alert("저장실패!");
+	alert("수정실패.");
 	self.close();
-	opener.location = "planList.jsp";
 	</script>
-<%
+	<%
 }
-%>
+	%>

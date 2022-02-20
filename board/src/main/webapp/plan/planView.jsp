@@ -3,8 +3,8 @@
 <%@ include file="../include/certificate.jsp" %>
 <%@ include file="../include/dbCon.jsp" %>
 <%
-String diary = request.getParameter("diary");
-if(diary == null || USERID == null){
+String pdate = request.getParameter("pdate");
+if(pdate == null || USERID == null){
 %>
 	<script>
 	alert("잘못된 경로의 접근입니다.");
@@ -13,16 +13,17 @@ if(diary == null || USERID == null){
 <%
 	return;
 }
-String sql = " SELECT title,content,pdate FROM plan ";
-       sql+= " WHERE userid='"+USERID+"' and pdate='"+diary+"' ";
+String sql = " SELECT title,content,pdate,week FROM plan ";
+       sql+= " WHERE userid='"+USERID+"' and pdate='"+pdate+"' ";
 ResultSet rs = stmt.executeQuery(sql);
 
 String title = "";
 String content = "";
-
+String week = "";
 if(rs.next()){
 	title = rs.getString("title");
-	content = rs.getString("content");
+	content = rs.getString("content");	
+	week = rs.getString("week");
 }else{
 %>
 	<script>
@@ -52,7 +53,7 @@ textarea{
 </head>
 <body onload='document.frm.title.focus()'>
 <div class="header" style="background-color:white">
-  <h2><%=diary%>✱</h2>
+  <h2><%=week%>✱</h2>
 </div>
 <div align="center">
 	<form name="frm" method="post" action="planWriteSave.jsp">
@@ -67,8 +68,8 @@ textarea{
 	</table>
 		<div class="view">
 			<input type="hidden"name="pdate" >	
-			<button type="button" onclick="fn_modify()">수정</button>
-			<button type="button" onclick="fn_delete()">삭제</button>
+			<button type="button" onclick="fn_modify('<%=pdate%>')">수정</button>
+			<button type="button" onclick="fn_delete('<%=pdate%>')">삭제</button>
 			<button type="button" onclick="self.close()">확인</button>
 		</div>
 	</form>
