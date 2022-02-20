@@ -10,6 +10,7 @@
 	font-size:15px;
 }
 </style>
+<link rel="stylesheet" href="../css/layout.css">
 <div class="header">
   <h2>Have a lovely day ✱</h2>
 </div>

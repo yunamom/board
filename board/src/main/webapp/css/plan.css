@@ -17,23 +17,7 @@ body {
     font-size: 20px;
 }
 /* Style the top navigation bar */
-.topnav {
-    overflow: hidden;
-    background-color: #bb899a;
-}
-/* Style the topnav links */
-.topnav a {
-    float: left;
-    display: block;
-    color: #f2f2f2;
-    text-align: center;
-    padding: 14px 15px;
-    text-decoration: none;
-}
-/* Change color on hover */
-.topnav a:hover {
-	color: #555555;
-}
+
 .main {
     margin: 0 auto;
     display: flex;

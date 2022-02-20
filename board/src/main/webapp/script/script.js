@@ -1,3 +1,5 @@
+
+
 //board 유효성체크
 function fn_submit() {
 	var f = document.frm; 

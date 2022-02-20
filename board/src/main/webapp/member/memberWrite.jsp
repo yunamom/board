@@ -6,11 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>∙ Join Account ∙</title>
-<style>
-td{
-	text-align:left;
-}
-</style>
+
 <link rel="stylesheet" href="../css/layout.css">
 <link rel="stylesheet" href="../css/jquery-ui.css">
   <link rel="stylesheet" href="/resources/demos/style.css">
@@ -41,58 +37,48 @@ if(session_id != null){
 <div class="row">
 	<h2> Join Account </h2>
 	<form name="frm" method="post" action="memberWriteSave.jsp">
-		<table class="table" style="max-width:600px">
+		<table class="table" style="max-width:450px">
 		<colgroup>
 		<col width="25%">
 		<col width="*">
 		</colgroup>
 		<tr>
-			<th>아이디</th>
+			<td>	
+			<input type="text" name="userid" placeholder="아이디" required>
+			<input style="cursor:pointer; width:20%;" type="button" onclick="fn_idcheck()" name="button" value="check ID">
+			<input type="hidden" name="check" value="0"><!-- 중요합니다! 중복체크확인할수있는 변수를 생성 -->		
+			</td>
+		</tr>
+		<tr>
+			<td><input type="password" name="pass" placeholder="비밀번호" required></td>
+		</tr>
+		<tr>
+			<td><input type="password" name="pass2" placeholder="비밀번호 확인" required></td>
+		</tr>
+		<tr>
+			<td><input type="text" name="name" placeholder="이름" required></td>
+		</tr>
+		<tr>
 			<td>
-			
-			<input type="text" name="userid" required>
-			(영문 4자~12)
-			<input style="cursor:pointer" type="button" onclick="fn_idcheck()" name="button" value="check ID">
-			<input type="hidden" name="check" value="0"><!-- 중요합니다! 중복체크확인할수있는 변수를 생성 -->
-			
+			남성<input style="width:20%" type="radio" name="gender" value="M">
+			여성<input style="width:20%" type="radio" name="gender" value="F">
 			</td>
 		</tr>
 		<tr>
-			<th>암호</th>
-			<td><input type="password" name="pass" required></td>
-		</tr>
-		<tr>
-			<th>암호확인</th>
-			<td><input type="password" name="pass2" required></td>
-		</tr>
-		<tr>
-			<th>이름</th>
-			<td><input type="text" name="name" required></td>
-		</tr>
-		<tr>
-			<th>성별</th>
-			<td style="">
-			<input type="radio" name="gender" value="M">남성
-			<input type="radio" name="gender" value="F">여성
-			</td>
-		</tr>
-		<tr>
-			<th>생일</th>
 			<td>
 			<input type="text" name="birthday" id="birthday" required>
 			</td>
 		</tr>
 		<tr>
-			<th>핸드폰</th>
 			<td>
 			<input type="text" name="mobile" placeholder="010 0000 0000">
 			</td>
 		</tr>
 		<tr>
-			<th>주소</th> <!-- 우편번호,주소 -->
+			<!-- 우편번호,주소 -->
 			<td>
 			<input type="text" name="zipcode">
-			<button style="cursor:pointer" type="button" onclick="fn_post()" >우편번호찾기</button>
+			<input style="cursor:pointer; width:20%;" type="button" onclick="fn_post()" value="우편번호">
 			<input style="margin-top:10px" type="text" size="30" name="addr">
 			
 			</td>

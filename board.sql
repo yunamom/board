@@ -37,3 +37,13 @@ CREATE TABLE memberInfo (
     addr varchar(100),
     rdate datetime
 );
+
+create table plan (
+	unq int unsigned not null auto_increment,
+	userid varchar(20) not null,
+	pdate date not null,
+	title varchar(50) not null,
+	content text,
+	week varchar(50) not null,
+	primary key(unq)
+);
