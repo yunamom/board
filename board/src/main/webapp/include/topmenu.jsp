@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="../css/layout.css">
+<link rel="stylesheet" href="../css/top.css">
 <link rel="preconnect" href="https://fonts.gstatic.com">
 
 
@@ -31,7 +31,7 @@ window.onload=function(){
 <body>
 <div class="header">
 <a style="color:#bb899a;"href="../main/index.jsp">
-<h1>Have a lovely day ✱</h1></a></div>
+<h2>Have a lovely day ✱</h2></a></div>
 
 <nav class="navbar">
 <div class="navbar_logo">

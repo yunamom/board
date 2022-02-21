@@ -1,126 +1,115 @@
-@charset "UTF-8";
-a{
-  text-decoration:none;
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    font-family: Fixedays;
+    color: #5d5e5e;
 }
 .header {
-  position: relative;
-  padding: 18px 2%;
-  height: 50px;
-}
-
-.header .logo {
-  float: left;
-  padding: 0;
-  margin: 0;
-  padding-left: 10px;
-  margin-top: auto;
-  margin-bottom: auto;
-}
-
-.header .logo img {
-  width: 200px;
-}
-
-.header .gnb {
-  margin: 0;
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 60%;
-  list-style-type: none;
-  width: 40%;
-  background: rgba(128, 128, 128, 0.4);
-}
-
-.header .gnb li a {
-  display: block;
-  padding: 20px 0 20px 10px;
-  font-size: 14px;
-  color: #fff;
-}
-
-.header .menu-toggle-btn {
-  float: right;
-  width: 40px;
-  padding-top: 10px;
-  cursor: pointer;
-}
-
-.header .menu-toggle-btn span {
-  display: block;
-  width: 100%;
-  height: 3px;
-  background: #000;
-}
-
-.header .menu-toggle-btn span:nth-child(2) {
-  margin: 7px 0;
-}
-
-/* 태블릿용 CSS */
-
-@media all and (min-width:768px) {
-  .header {
-    display: grid;
-    grid-template-columns: 30% 70%;
-    padding: 0px;
-    height: auto;
-    margin-top: auto;
-    margin-bottom: auto;
-    background: #808080;
-  }
-  .header .logo {
-    padding: 10px 20px;
-    padding-left: 30px;
-  }
-  .header nav {
-    margin-left: 0px;
-    margin-right: 0px;
-    padding-left: 0px;
-    margin-right: 0px;
-    margin-top: auto;
-    margin-bottom: auto;
-    width: 100%;
-  }
-  .header .gnb {
-    /* !important 없으면 btn 접었을 시 display:none되어 gnb가 표시되지 않음 */
-    display: grid !important;
-    display: block;
-    height: 100%;
-    grid-template-columns: 15% 15% 15% 15% 15%;
-    position: static;
-    width: auto;
-    background: none;
-  }
-  .header .gnb li {
-    float: left;
-    margin-top: auto;
-    margin-bottom: auto;
-    margin-left: 10px;
-    margin-right: 10px;
-    border-bottom: 0;
-  }
-  .header .gnb li a {
-    color: #fff;
-    padding: 0;
-    font-size: 18px;
-  }
-  .header .menu-toggle-btn {
-    display: none;
-  }
-}
-
-/* 컴퓨터용 CSS */
-
-@media all and (min-width:1132px) {
-  .header {
-    grid-template-columns: 20% 80%;
-  }
-  .header .logo {
-    padding: 10px 20px;
-    padding-left: 50px;
-  }
-  .header .gnb li a {
+	color: #bb899a;
+    background-color: #f1f1f1;
+    padding: 20px;
+    text-align: center;
     font-size: 20px;
-  }
+}
+.navbar{
+	display: flex;
+	justify-content: space-between; /*중심축 배치*/
+	align-items: center;
+	background-color: #bb899a;
+	padding: 3px 12px; /*위아래 8px, 양옆 12px*/
+}
+a{
+	text-decoration: none;
+	color: white;
+}
+.navbar__logo{
+	font-size: 24px;
+	color: white;
+}
+.navbar__logo i{
+	color: black;
+}
+.navbar__menu {
+	display: flex;
+	list-style: none; /* ul태그의 점을 제거*/
+	padding-left: 0;
+}
+.navbar__menu li{
+	margin-right: 1rem;
+	font-size: 17px;
+	padding: 3px 12px;
+}
+.navbar__menu li:hover {
+	background-color: #bba1aa;
+	border-radius: 1rem;
+}
+.navbar__icons{
+	padding-left: 0px;
+	list-style: none;
+	color : white;
+	display: flex;
+}
+.navbar__icons li{
+	padding: 8px 12px;
+}
+.navbar__toogleBtn{
+	display: none; /*일반 사이즈에서는 나타나지 않음 */
+	position: absolute;
+	right: 15px;
+	font-size: 24px;
+	color: black;
+}
+
+/* 레이아웃을 반응형으로 만들때는 media 쿼리 사용*/
+@media screen and (max-width: 750px) {
+    .column.side, .column.middle{
+        width: 100%;
+    }
+    .table,table, .L, .R{
+    	width: 95%;
+    	font-size: 90%;
+    }
+    /*로고,메뉴바가 수직으로 나오도록*/
+    .navbar{
+    	flex-direction: column;
+    	align-items: flex-start; 
+    	padding: 8px 24px;
+    }
+    .navbar__menu{
+    	display: none; /* 현 사이즈에선 메뉴가 나타나지 않음*/
+    	flex-direction: column;
+    	align-items: center;
+    	width: 100%;
+    }
+    .navbar__menu li{
+    	margin: 0.5rem;
+    	width: 100%;
+    	text-align: center;
+    }
+    .navbar__icons{
+    	display: none;
+    	justify-content: center;
+    	width: 100%;
+    }
+    .navbar__toogleBtn{
+    	display: block;
+    }
+    /* active 요소 추가 */
+    .navbar__menu.active,
+    .navbar__icons.active{
+    	display: flex;
+    }
+}
+
+footer {
+    position: fixed;
+    width: 100%;   
+	bottom: 0px;
+	color: #fff;
+    background-color: #f1f1f1;
+    padding: 10px;
+    text-align: center;
+    font-size: 10px;
 }

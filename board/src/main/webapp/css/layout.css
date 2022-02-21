@@ -40,7 +40,7 @@ a{
 }
 .navbar__menu li{
 	margin-right: 1rem;
-	font-size: 20px;
+	font-size: 17px;
 	padding: 3px 12px;
 }
 .navbar__menu li:hover {
@@ -246,8 +246,16 @@ a{
     display: table;
     clear: both;
 }
+.game{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
 /* 레이아웃을 반응형으로 만들때는 media 쿼리 사용*/
 @media screen and (max-width: 750px) {
+	.game{
+		display: block;
+	}
     .column.side, .column.middle{
         width: 100%;
     }

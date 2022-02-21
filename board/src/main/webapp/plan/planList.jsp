@@ -53,23 +53,12 @@ if(after_m > 12){
 <head>
 <meta charset="UTF-8">
 <title>∙ <%=y %>년 <%=m+1 %>월 ∙</title>
-<link rel="stylesheet" href="../css/plan.css">
 
+<link rel="stylesheet" href="../css/plan.css">
 </head>
 <body>
 <%@ include file="../include/topmenu.jsp" %>
-<%
-if(session_id == null || session_id.equals("")){
-%>
-	<script>
-	alert("로그인 이후에 이용가능합니다.");
-	location="../member/loginWrite.jsp";
-	
-	</script>
-<%
-	return;
-}
-%>
+
 <form name="frm" method="post" action="planList.jsp">
 <!-- 데이터를 자기자신에게 넘길수있게한다.-->
 </form>

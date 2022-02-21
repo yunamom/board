@@ -4,12 +4,21 @@
 <%@ include file="../include/dbCon.jsp" %>
 <%
 String pdate = request.getParameter("pdate");
-if(pdate == null || USERID == null){
+if(pdate == null){
 %>
 	<script>
 	alert("잘못된 경로의 접근입니다.");
 	self.close();
 	</script>	
+<%
+	return;
+}
+if(USERID == null){
+%>
+	<script>
+	alert("로그인후 사용해주세요.");
+	self.close();
+	</script>
 <%
 	return;
 }

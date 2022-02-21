@@ -9,7 +9,7 @@
 </head>
 <body>
 <%@ include file="../include/topmenu.jsp" %>
-<div class="row"> 
+<div class="game"> 
   	<div class=img>
   		<a href="https://yunamom.github.io/lotto/">
     	<img src="../img/lotto.png"></a>
