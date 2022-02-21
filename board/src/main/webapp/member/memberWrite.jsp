@@ -22,6 +22,15 @@
   </script>
   
 </head>
+<style>
+textarea,input{
+	font-size:17px;
+	color:#555555;
+	padding: 5px;
+	width: 80%;
+}
+
+</style>
 
 <body onload='document.frm.userid.focus()'> <!-- 아이디 입력창에 커서가 깜빡거릴수있도록 한다. -->
 <%@ include file="../include/topmenu.jsp" %>
