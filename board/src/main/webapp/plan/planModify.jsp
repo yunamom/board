@@ -44,9 +44,9 @@ textarea{
 </style>
 </head>
 <body onload='document.frm.title.focus()'>
-<div class="header" style="background-color:white">
+<header style="background-color:white">
   <h2><%=week%>✱</h2>
-</div>
+</header>
 <div align="center">
 	<form name="frm" method="post" action="planModifySave.jsp">
 	<input type="hidden" name="unq" value="<%=unq%>">

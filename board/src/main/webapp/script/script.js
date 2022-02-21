@@ -80,10 +80,62 @@ function fn_memberSubmit(){
 		f.mobile.focus();
 		return false;
 	}
+	if(f.zipcode.value == "" || f.zipcode.value.length < 5){
+		alert("우편번호를 5자 내외로 입력해주세요. ");
+		f.zipcode.focus();
+		return false;
+	}
+	if(f.addr.value == ""){
+		alert("주소를 입력하세요.");
+		f.addr.focus();
+		return false;
+	}
 		
 	document.frm.submit();
-	
 }
+function fn_memberModify(){
+	var f = document.frm;	
+	
+	if(f.pass.value == ""){
+		alert("비밀번호를 입력해주세요.");
+		f.pass.focus();
+		return false;
+	}
+	if(f.pass.value.length < 4 ){
+		alert("비밀번호는 4자이상으로 입력해주세요.");
+		f.pass.focus();
+		return false;
+	}	
+	if(f.pass.value != f.pass2.value){
+		alert("비밀번호를 확인해주세요.");
+		f.pass2.focus();
+		return false;
+	}
+	if(f.name.value == ""){
+		alert("이름을 입력해주세요.");
+		f.name.focus();
+		return false;
+	}
+	var reg_mobile = /^[0-9]{8,13}$/; //전화번호 숫자만
+	if(!reg_mobile.test(f.mobile.value)){
+		alert("전화번호를 확인해주세요.");
+		f.mobile.focus();
+		return false;
+	}
+	if(f.zipcode.value == "" || f.zipcode.value.length < 5){
+		alert("우편번호를 5자 내외로 입력해주세요. ");
+		f.zipcode.focus();
+		return false;
+	}
+	if(f.addr.value == ""){
+		alert("주소를 입력하세요.");
+		f.addr.focus();
+		return false;
+	}
+		
+	document.frm.submit();
+}
+
 function fn_idcheck(){  // id 중복체크
 	var userid = document.frm.userid.value;
 	var check = document.frm.check.value;
@@ -167,5 +219,5 @@ function fn_delete(diary){ //planView.jsp 에서 날짜 매개변수를 받아�
 		location = "planDelete.jsp?pdate="+diary;
 		
 	}
-	
 }
+

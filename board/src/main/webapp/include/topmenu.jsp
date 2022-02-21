@@ -29,13 +29,13 @@ window.onload=function(){
 </head>
 
 <body>
-<div class="header">
-<a style="color:#bb899a;"href="../main/index.jsp">
-<h2>Have a lovely day ✱</h2></a></div>
+<header>
+<h2><a style="color:#bb899a;"href="../main/index.jsp">
+Have a lovely day ✱</a></h2></header>
 
 <nav class="navbar">
 <div class="navbar_logo">
-	<a href="#"><img src="../img/img.png"></a>
+	<a href="https://yunamom.duckdns.org"><img src="../img/img.png"></a>
 </div>
 <!-- 일렬정렬을 위해 ul 태그 활용 -->
 <ul class="navbar__menu">
@@ -50,6 +50,7 @@ window.onload=function(){
   if(session_id == null){
   %>
   <li><a href="../member/loginWrite.jsp">∙Login</a></li>
+  <li><a href="../member/memberWrite.jsp">∙Join</a></li>
   <li><a href="../plan/planList.jsp">∙Calendar</a></li>
   <%
   }else{ //로그인 했을 경우의 상황
@@ -60,6 +61,7 @@ window.onload=function(){
   <%
   }
   %>
+
   </ul>
   <ul class="navbar__icons">
   	<li><i class="fab fa-facebook"></i></li>

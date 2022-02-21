@@ -22,15 +22,7 @@
   </script>
   
 </head>
-<style>
-textarea,input{
-	font-size:17px;
-	color:#555555;
-	padding: 5px;
-	width: 80%;
-}
 
-</style>
 
 <body onload='document.frm.userid.focus()'> <!-- 아이디 입력창에 커서가 깜빡거릴수있도록 한다. -->
 <%@ include file="../include/topmenu.jsp" %>
@@ -53,7 +45,7 @@ if(session_id != null){
 		</colgroup>
 		<tr>
 			<td>	
-			<input type="text" name="userid" placeholder="아이디" required>
+			<input type="text" name="userid" placeholder="아이디" style="width:60%;" required>
 			<input style="cursor:pointer; width:20%;" type="button" onclick="fn_idcheck()" name="button" value="check ID">
 			<input type="hidden" name="check" value="0"><!-- 중요합니다! 중복체크확인할수있는 변수를 생성 -->		
 			</td>
@@ -86,7 +78,7 @@ if(session_id != null){
 		<tr>
 			<!-- 우편번호,주소 -->
 			<td>
-			<input type="text" name="zipcode">
+			<input type="text" name="zipcode" style="width:60%;">
 			<input style="cursor:pointer; width:20%;" type="button" onclick="fn_post()" value="우편번호">
 			<input style="margin-top:10px" type="text" size="30" name="addr">
 			

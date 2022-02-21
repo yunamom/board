@@ -35,11 +35,12 @@
 }
 .table th {
 	color: #bb899a;
-	background: #f1f1f1;
+	background: white;
 	text-align: center;
+	padding: 8px;
 }
-.table th,.table td{
-	padding: 10px 10px;
+.table td{
+	padding: 10px;
 }
 .table th:first-child, .table td:first-child {
 	border-left: 0;
@@ -121,12 +122,12 @@ textarea,input{
     clear: both;
 }
 /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 500px) {
 
     .table,table{
     	width: 30%;
-    	height: 30%;
-    	font-size: 70%;
+    	height: 400px;
+    	font-size: 80%;
     }
 }
 
@@ -178,8 +179,7 @@ footer {
     position: fixed;
     width: 100%;   
 	bottom: 0px;
-	color: #fff;
-    background-color: #f1f1f1;
+	color: #bb899a;
     padding: 10px;
     text-align: center;
     font-size: 10px;
