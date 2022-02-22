@@ -205,8 +205,8 @@ a{
 	cursor: pointer;
 	width: inherit;
 	height: inherit;
-	background: transparent;
-	background-color: pink;
+	/*background: transparent;*/
+	background-color: white;
 	border-radius: 0.5rem;
 	font-size: 17px;
 	border: 0 none;
@@ -253,6 +253,29 @@ a{
 	justify-content: center;
 	align-items: center;
 }
+.window{
+	padding: 32px;
+	text-align: center;
+	color: white;
+	background-color:#bb899a;
+}
+.selectBox{
+	font-size: 1rem;
+	font-weight: 400;
+	line-height: 1.5;
+	
+	color: #444;
+	background-color: #fff;
+	
+	padding: 0.6em 1.4em 0.5em 0.8em;
+	margin: 0;
+	
+	border: 1px solid #aaa;
+	border-radius: 0.5em;
+	box-shadow: 0 1px 0 1px rgba(0, 0, 0, 0.04);
+	width: 100px;
+	overflow: hidden;
+}
 /* 레이아웃을 반응형으로 만들때는 media 쿼리 사용*/
 @media screen and (max-width: 750px) {
 	.game{
@@ -265,7 +288,6 @@ a{
     	width: 95%;
     	font-size: 90%;
     }
-   
 }
 /* Style the footer */
 footer {

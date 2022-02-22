@@ -164,11 +164,11 @@ function fn_idcheck(){  // id 중복체크
 		alert("4~12자 영문자 또는 숫자 이어야합니다.");
 		return false;
 	}
-	var w  = window.screen.width/2 -150;
+	var w  = window.screen.width/2 - 150;
 	var h = window.screen.height/2 - 100;
 	
 	var url = "idcheck.jsp?userid="+userid+"&check="+check;
-	window.open(url,"page","width=400,height=200,left="+w+",top="+h ); //left and top 으로 창의 위치를 설정할수있습니다.
+	window.open(url,"page","width=300,height=150,left="+w+",top="+h ); //left and top 으로 창의 위치를 설정할수있습니다.
 	//팝업이름을 똑같이 하면 새창으로 열리지않고 그이름을 가진곳에 열린다. 없으면 새창으로 열린다. 
 }
 
@@ -178,7 +178,7 @@ function fn_post(){ // 주소
 	var w  = (window.screen.width/2) - 150;
 	var h = (window.screen.height/2) - 100;
 	
-	window.open(url,"page","width=400,height=200,left="+w+",top="+h );
+	window.open(url,"page","width=300,height=200,left="+w+",top="+h );
 
 }
 function fn_action(){ // 우편번호 넣기 
@@ -219,5 +219,19 @@ function fn_delete(diary){ //planView.jsp 에서 날짜 매개변수를 받아�
 		location = "planDelete.jsp?pdate="+diary;
 		
 	}
+}
+
+function fn_checkPost(){
+	var f = document.frm;
+	if(f.state1.value == null){
+		return false;
+	}
+	if(f.city1.value == null){
+		return false;
+	}
+	if(f.address.value == null){
+		return false;
+	}
+	f.submit();
 }
 

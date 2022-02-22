@@ -24,7 +24,7 @@ if(userid == null || pass == null || name == null || gender == null){
 <%
 	return;
 }
-
+mobile = mobile.replace(" ","");
 %>
 <!-- 중복아이디 체크 -->
 <%
