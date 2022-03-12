@@ -1,86 +1,26 @@
-[구조] 폴더 / 파일 
-
-1. board 
-    - boardWrite.jsp
-    - boardWriteSave.jsp
-    - boardList.jsp
-    - boardDetail.jsp
-    - boardModify.jsp
-    - boardModifySave.jsp
-    - passWrite.jsp
-    - boardDelete.jsp
-
-2. css
-    - layout.css
-
-3. dept
-
-4. emp
-
-5. friend
-
-6. include 
-    - topmenu.jsp
-    - leftmenu.jsp
-    - footer.jsp
-    - dbCon.jsp
-
-7. main
-    - main.jsp ( layout 샘플 )
-
-8. others
-
-<hr>
-[게시판]
-
-1. boardWrite.jsp -쓰기화면
-
-2. boardWriteSave.jsp -저장처리
-
-3. boardList.jsp -목록화면
-
-4. boardDetail.jsp -상세화면
-
-5. boardModify.jsp -수정화면
-
-6. boardModifySave.jsp -수정처리
-
-7. passWrite.jsp -암호화면
-
-8. boardDelete.jsp -삭제처리
+# ∙ JSP 게시판 ∙
 
 
-<hr>
-[답변 게시판]
+
+|board - [게시판]|reBoard - [답변 게시판]|member - [회원관리]|plan - [일정관리]|
+|----------|----------|----------|----------|
+| - boardWrite.jsp | - reBoardWrite.jsp | - memberWrite.jsp | - planList.jsp |
+| - boardWriteSave.jsp | - reBoardWriteSave.jsp | - memberWriteSave.jsp | - planWrite.jsp |
+| - boardList.jsp | - reBoardlist.jsp | - memeberModify.jsp | - planWriteSave.jsp |
+| - boardDetail.jsp | - reBoardDetail.jsp | - memberModifySave.jsp | - planView.jsp |
+| - boardModify.jsp | - reBoardModify.jsp | - idcheck.jsp | - planDelete.jsp |
+| - passWrite.jsp | - reBoardModifySave.jsp| - post1.jsp | - planModify.jsp |
+| - boardDelete.jsp | - passWrite.jsp | - post2.jsp | - planModifySave.jsp |
+|                   | - passModify.jsp | - loginWrite.jsp | | 
+|                   | - reBoardDelete.jsp | - loginWriteSub.jsp |  |
+|                   | - replyWrite.jsp | - logout.jsp |       |
+|| - replyWriteSave.jsp| - memberList.jsp | |
+
+reBoard - [답변 게시판]
 
 새로운 컬럼에 대한 이해
-1. gid : 신규 글에게 ID 값을 새로 부여하고 관련 댓글들에게는 같은  ID 값을 적용한다.
-2. thread: 맨윗글을 필두로 달려져 있는 댓글들에게 차등 부여하여 댓글들끼리의 순서 및 2차,3차 순서를 만든다.
-
-
-만들어야 되는 파일
-
-1. reBoardWrite.jsp -등록화면 
-
-2. reBoardWriteSave.jsp -등록저장처리
-
-3. reBoardlist.jsp -목록화면
-
-4. reBoardDetail.jsp -상세화면
-
-5. reBoardModify.jsp -수정 화면
-
-6. reBoardModifySave.jsp -수정 저장 처리
-
-7. passWrite.jsp -암호확인 화면
-
-8. reBoardDelete.jsp -삭제 처리
-
-9. replyWrite.jsp -답변 화면
-
-10. replyWriteSave.jsp -답변 저장 처리
-
-<br>
+- gid : 신규 글에게 ID 값을 새로 부여하고 관련 댓글들에게는 같은  ID 값을 적용한다.
+- thread: 맨윗글을 필두로 달려져 있는 댓글들에게 차등 부여하여 댓글들끼리의 순서 및 2차,3차 순서를 만든다.
 
 1. 등록화면
     * 제목과 암호의 유효성 체크를 한다.
