@@ -11,15 +11,12 @@
 <%@ include file="../include/topmenu.jsp" %>
 <div class="row">
 <div class="main">
-	<ul style="list-style: none;">
-		<li><h3>∙Board - 게시판∙</h3></li>
-		<li><h3>∙Q&A - 답변형 게시판∙</h3></li>
-		<li><h3>∙Game - 게임∙</h3></li>
-		<li><h3>∙Login - 로그인 (test/test)∙</h3></li>
-		<li><h3>∙Join - 회원가입∙</h3></li>
-		<li><h3>∙Calendar - 일정목록∙</h3></li>
-	</ul>
+
+	<div class="videowrapper">
+		<iframe width="560" height="315" src="https://www.youtube.com/embed/uodfyFby6JM"></iframe>
 	</div>
+
+</div>
 </div>
 <footer>by yunamom</footer>
 </body>

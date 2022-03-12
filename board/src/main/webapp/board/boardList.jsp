@@ -8,7 +8,7 @@ String view = request.getParameter("view");
 
 
 /* 한 페이지의 게시물 수 */
-int pageSize = 2;
+int pageSize = 5;
 
 /* 한 블럭( range : 범위 ) 의 페이지 수 */
 int rangeSize = 5; 
