@@ -53,15 +53,18 @@ Have a lovely day ✱</a></h2></header>
   <li><a href="../member/memberWrite.jsp">∙Join</a></li>
   <li><a href="../plan/planList.jsp">∙Calendar</a></li>
   <%
-  }else{ //로그인 했을 경우의 상황
+  }else if(session_id.equals("yunamom")){ //매니저 로그인 했을 경우의 상황
   %>
-  <li><a href="../member/memberModify.jsp">∙ <%=session_id%></a></li> 
+  <li><a href="../member/memberList.jsp">∙UserList</a></li> 
   <li><a href="../plan/planList.jsp">∙Calendar</a></li>
   <li><a href="../member/logout.jsp">∙Logout </a></li>
   <%
-  }
+  }else{
   %>
-
+  <li><a href="../member/memberModify.jsp">∙Mypage</a></li> 
+  <li><a href="../plan/planList.jsp">∙Calendar</a></li>
+  <li><a href="../member/logout.jsp">∙Logout </a></li>
+  <%}%>
   </ul>
   <ul class="navbar__icons">
   	<li><i class="fab fa-facebook"></i></li>

@@ -41,7 +41,8 @@ if(cnt==0){
 String sql = "SELECT ";
 	sql += " title,";
 	sql += " name,";
-	sql += " content ";
+	sql += " content, ";
+	sql += " pass ";
 	sql += " FROM reboard ";
 	sql += " WHERE unq='"+unq+"' ";
 
@@ -50,11 +51,13 @@ rs = stmt.executeQuery(sql);
 String title = "";
 String name = "";
 String content = "";
+String pw = "";
 
 if(rs.next()){ //예외처리
 	title = rs.getString("title");
 	name = rs.getString("name");
 	content = rs.getString("content");
+	pw = rs.getString("pass");
 } else {	
 %>
 	<script>
@@ -86,23 +89,19 @@ if(rs.next()){ //예외처리
 		<col width="*"/>
 	</colgroup>	
 		<tr>
-			<th>제목</th>
 			<td style="text-align:left"><input size="30" type="text" name="title" value="<%=title%>"></td>
 		</tr>			
 		<tr>
-			<th>내용</th>
 			<td style="text-align:left">
 			<textarea name="content" rows="10" cols="30"><%=content%></textarea>
 			<!-- rows 세로 cols 가로 -->
 			</td>
 		</tr>
 		<tr>
-			<th>이름</th>
 			<td style="text-align:left"><input type="text" name="name" value="<%=name%>" readonly></td>
 		</tr>
 		<tr>
-			<th>암호</th>
-			<td style="text-align:left"><input type="password" name="pass" required></td>
+			<td style="text-align:left"><input type="password" name="pass" value="<%=pw%>" required></td>
 		</tr>
 	</table>
 		<div>

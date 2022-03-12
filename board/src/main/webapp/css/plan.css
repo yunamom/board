@@ -1,5 +1,19 @@
 @charset "UTF-8";
-
+* {
+    box-sizing: border-box;
+}
+html{
+	position: relative;
+	min-height: 100%;
+	margin: 0;
+	background-color: #f5f2f3;
+}
+body {
+	min-height: 100%;
+    margin: 0;
+    font-family: Fixedays;
+    color: #5d5e5e;
+}
 .column {
     margin: 0 auto;
     display: flex;
@@ -41,6 +55,7 @@
 }
 .table td{
 	padding: 10px;
+	border-radius: 0.5rem;
 }
 .table th:first-child, .table td:first-child {
 	border-left: 0;
@@ -174,13 +189,13 @@ button:hover{
 .select:hover {
 	cursor: pointer;
 }
-/* Style the footer */
 footer {
-    position: fixed;
+    position: absolute;
+    left: 0;
+	bottom: 0;
     width: 100%;   
-	bottom: 0px;
-	color: #bb899a;
-    padding: 10px;
+    padding: 10px 0;
     text-align: center;
+	color: #bb899a;
     font-size: 10px;
 }

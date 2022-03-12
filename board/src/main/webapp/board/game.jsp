@@ -22,5 +22,6 @@
     <!--<h3><a href="https://github.com/yunamom/lotto">∙ github ∙<a></h3>-->
   	
     <!--<h3><a href="https://github.com/yunamom/tictactoe">∙ github ∙<a></h3>-->
+<footer>by yunamom</footer>
 </body>
 </html>

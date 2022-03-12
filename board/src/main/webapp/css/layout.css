@@ -4,9 +4,13 @@
     box-sizing: border-box;
 }
 html{
+	position: relative;
+	min-height: 100%;
+	margin: 0;
 	background-color: #f5f2f3;
 }
 body {
+	min-height: 100%;
     margin: 0;
     font-family: Fixedays;
     color: #5d5e5e;
@@ -66,10 +70,16 @@ a{
 	color: black;
 }
 .main{
-	margin-top: 100px;
+	margin:10%;
 	color: #5d5e5e;
+	text-align: center;
 }
-
+.main > ul{
+	list-style: none; /* ul태그의 점을 제거*/
+}
+.main > li{
+	font-size: 17px;
+}
 .column {
     margin: 0 auto;
     display: flex;
@@ -93,6 +103,7 @@ a{
 .column.middle a:hover{
 	color: #bb899a;
 }
+
 /* 테이블 세팅 */
 .table {
 	position: flex;
@@ -205,13 +216,13 @@ a{
 	cursor: pointer;
 	width: inherit;
 	height: inherit;
-	/*background: transparent;*/
+	color: #4b4c4c;
 	background-color: white;
 	border-radius: 0.5rem;
 	font-size: 17px;
 	border: 0 none;
 	outline: 0 none;
-	padding: 0 5px;
+	padding: 0 10px;
 	position: relative;
 	z-index: 3;
 }
@@ -276,6 +287,12 @@ a{
 	width: 100px;
 	overflow: hidden;
 }
+.write{
+	width: 100%;
+	height: 300px; 
+	text-align:left;
+}
+
 /* 레이아웃을 반응형으로 만들때는 media 쿼리 사용*/
 @media screen and (max-width: 750px) {
 	.game{
@@ -289,13 +306,14 @@ a{
     	font-size: 90%;
     }
 }
-/* Style the footer */
+
 footer {
-    position: fixed;
+    position: absolute;
+    left: 0;
+	bottom: 0;
     width: 100%;   
-	bottom: 0px;
-	color: #bb899a;
-    padding: 10px;
+    padding: 10px 0;
     text-align: center;
+	color: #bb899a;
     font-size: 10px;
 }

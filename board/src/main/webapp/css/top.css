@@ -2,9 +2,13 @@
     box-sizing: border-box;
 }
 html{
+	position: relative;
+	min-height: 100%;
+	margin: 0;
 	background-color: #f5f2f3;
 }
 body {
+	min-height: 100%;
     margin: 0;
     font-family: Fixedays;
     color: #5d5e5e;

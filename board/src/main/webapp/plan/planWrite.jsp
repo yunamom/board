@@ -17,7 +17,6 @@ if(strReferer == null){
 if(USERID == null){
 %>
 	<script>
-	alert("로그인후 사용해주세요.");
 	self.close();
 	</script>
 <%

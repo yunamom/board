@@ -13,29 +13,19 @@
 <div class="row">
     <h2>∙ 게시글 작성 ∙</h2>
 	<form name="frm" method="post" action="boardWriteSave.jsp">
-	<table class="table">		
-	<colgroup>
-		<col width="25%"/>
-		<col width="*"/>
-	</colgroup>	
+	<input type="hidden" name="name" value="<%=session_id %>">
+	<table class="table">
 		<tr>
-			<th>제목</th>
-			<td style="text-align:left"><input size="30" type="text" name="title" required></td>
+			<td><input size="30" type="text" name="title" placeholder="제목" required></td>
 		</tr>			
 		<tr>
-			<th>내용</th>
-			<td style="text-align:left">
+			<td>
 			<textarea name="content" rows="10" cols="30" placeholder="내용을 입력하세요."></textarea>
 			<!-- rows 세로 cols 가로 -->
 			</td>
 		</tr>
 		<tr>
-			<th>이름</th>
-			<td style="text-align:left"><input type="text" name="name" value="<%=session_id %>" readonly></td>
-		</tr>
-		<tr>
-			<th>암호</th>
-			<td style="text-align:left"><input type="password" name="pass" required></td>
+			<td><input type="password" name="pass" placeholder="비밀번호" required></td>
 		</tr>
 	</table>
 		<div class="view">
@@ -45,6 +35,7 @@
 		</div>
 	</form>	
 </div>
+<footer>by yunamom</footer>
 </body>
 <script src="../script/script.js"></script>
 </html>

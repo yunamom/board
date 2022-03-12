@@ -60,6 +60,7 @@ else if(gubun.equals("R")) {
 		</div>
 	</form>	
 </div>
+<footer>by yunamom</footer>
 </body>
 <script src="../script/script.js"></script>
 </html>

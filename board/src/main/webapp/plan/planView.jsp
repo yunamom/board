@@ -53,10 +53,10 @@ if(rs.next()){
 <link rel="stylesheet" href="../css/layout.css">
 <style>
 input,textarea{
-	width:100%;
+	width: 100%;
 }
 textarea{
-	height:300px;
+	height: 300px;
 }
 </style>
 </head>
@@ -69,10 +69,10 @@ textarea{
 	<input type="hidden" name="unq" value="">
 	<table class="table">		
 		<tr>
-			<td><%=title %></td>
+			<th><%=title %></th>
 		</tr>
 		<tr>
-			<td style="height:300px; float:left;" valign="top"><%=content %></td>
+			<td style="width: 100%; height: 300px; text-align:left; overflow: auto; " valign="top"><%=content %></td>
 		</tr>
 	</table>
 		<div class="view">

@@ -26,30 +26,20 @@ if(unq == null){
     <h2>Q & A Board Reply</h2>
 	<form name="frm" method="post" action="replyWriteSave.jsp">
 	<input type="hidden" name="unq" value="<%=unq %>"/>
-	<table class="table">		
-	<colgroup>
-		<col width="25%"/>
-		<col width="*"/>
-	</colgroup>	
+	<input type="hidden" name="name" value="<%=session_id%>">
+	<table class="table">			
 		<tr>
-			<th>제목</th>
 			<%String re="<img src='../img/reply_icon.png'>"; %>
-			<td style="text-align:left"><%=re%><input size="25" type="text" name="title" required></td>
+			<td><input size="25" type="text" name="title" placeholder="[Re]:" required></td>
 		</tr>			
 		<tr>
-			<th>암호</th>
-			<td style="text-align:left"><input type="password" name="pass" required></td>
-		</tr>
-		<tr>
-			<th>이름</th>
-			<td style="text-align:left"><input type="text" name="name" value="<%=session_id%>" readonly></td>
-		</tr>
-		<tr>
-			<th>내용</th>
-			<td style="text-align:left">
+			<td>
 			<textarea name="content" rows="10" cols="30" placeholder="내용을 입력하세요."></textarea>
 			<!-- rows 세로 cols 가로 -->
 			</td>
+		</tr>
+		<tr>
+			<td><input type="password" name="pass"  placeholder="비밀번호" required></td>
 		</tr>
 	</table>
 		<div class="view">

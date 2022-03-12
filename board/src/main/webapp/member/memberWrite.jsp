@@ -1,6 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+<%
+String strReferer = request.getHeader("referer");
+if(strReferer == null){ 
+//비정상적인 URL 접근차단을 위해 request.getHeader("referer") 메소드를 사용하였습니다.
+%>
+	<script>
+	alert("정상적인 경로를 통해 다시 접근해 주십시오.");
+	location="../main/index.jsp";
+	</script>
+<%
+	return;
+}
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,7 +35,6 @@
   
 </head>
 
-
 <body onload='document.frm.userid.focus()'> <!-- 아이디 입력창에 커서가 깜빡거릴수있도록 한다. -->
 <%@ include file="../include/topmenu.jsp" %>
 <%
@@ -35,6 +46,7 @@ if(session_id != null){
 <%	return;
 }	
 %>
+<section>
 <div class="row">
 	<h2> Join Account </h2>
 	<form name="frm" method="post" action="memberWriteSave.jsp">
@@ -91,6 +103,8 @@ if(session_id != null){
 		</div>			
 	</form>	
 </div>
+</section>
+<footer>by yunamom</footer>
 </body>
 <script src="../script/script.js"></script>
 </html>

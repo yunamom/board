@@ -114,7 +114,6 @@ if(after_m > 12){
 			count++;
 			String color=(count%7==1)?"#b56161":(count%7==0)?"#677793":"";
 			//요일 구하기
-			
 			//저장된 글 표시하기
 			String diary = y+"-"+(m+1)+"-"+day;
 			String d_sql = " SELECT count(*)cnt from plan ";
@@ -126,14 +125,16 @@ if(after_m > 12){
 			
 			if(cnt > 0){
 			%>
-				<td style="background-color:#f1f1f1; opacity:0.7;" onClick="javascript:fn_detail('<%=diary%>')">
+				<td style="background: #d0b6c6; border-radius: 0.5rem;" onClick="javascript:fn_detail('<%=diary%>')">
 				<%=day%></td>
 				<!-- 날짜를 클릭했을때 함수가 실행되면서 diary 값을 보내준다. -->
 			<%
-			}else{
+			}else if(cnt == 0 && USERID != null){
 			%>	<td onClick="window.open('planWrite.jsp?y=<%=y%>&m=<%=m+1%>&d=<%=day%>&w=<%=dayOfweek %>','Diary','width=400,height=500')"
 			style="color:<%=color%>;"><%=day%></td>
 			
+			<%}else{%>
+				<td onClick="location='../member/loginWrite.jsp'"><%=day%></td>
 			<%}
 			if(count%7==0){
 				out.print("</tr><tr>");
@@ -149,9 +150,7 @@ if(after_m > 12){
 	</table>
 </div>
 </section>
-<footer>
-by.yunamom
-</footer>
+<footer>by yunamom</footer>
 </body>
 <script src="../script/script.js"></script>
 </html>

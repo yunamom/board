@@ -42,7 +42,6 @@ int result = stmt.executeUpdate(sql);
 if(result == 1){
 %>
 	<script>
-	alert("일정 저장완료!");
 	self.close();
 	opener.location = "planList.jsp";
 	</script>
@@ -50,7 +49,6 @@ if(result == 1){
 }else{
 %>
 	<script>
-	alert("저장실패!");
 	self.close();
 	opener.location = "planList.jsp";
 	</script>

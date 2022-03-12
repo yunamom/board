@@ -18,6 +18,7 @@ if(USERID == null || strReferer == null){
 String unq = request.getParameter("unq");
 String title = request.getParameter("title");
 String content = request.getParameter("content");
+content = content.replace("\r\n","<br>");//줄바꿈
 
 String sql = " UPDATE plan ";
        sql+= " SET title = '"+title+"', ";
@@ -28,14 +29,12 @@ int result = stmt.executeUpdate(sql);
 if(result > 0){
 	%>
 	<script>
-	alert("수정완료.");
 	self.close();
 	</script>
 	<%
 }else{
 	%>
 	<script>
-	alert("수정실패.");
 	self.close();
 	</script>
 	<%

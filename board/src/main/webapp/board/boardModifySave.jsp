@@ -31,8 +31,8 @@ if(unq == null || title == null || pass == null) {
 // SELECT count(*) FROM board WHERE unq=7 and pass='1234'
 // result : 1 (정상) , 0 (에러)
 String sql = " SELECT count(*) cnt "; //alias 해준다.
-      sql += " FROM board ";
-      sql += " WHERE unq='"+unq+"' and pass='"+pass+"' ";
+      sql += " FROM reboard ";
+      sql += " WHERE unq='"+unq+"' ";
 
 ResultSet rs = stmt.executeQuery(sql);
 rs.next();
@@ -53,7 +53,7 @@ String sql2 = " UPDATE board SET ";
        sql2+= " title='"+title+"', ";
        sql2+= " name='"+name+"', ";
        sql2+= " content='"+content+"', ";
-       sql2+= " rdate=now() "; //현재시간
+       sql2+= " pass='"+pass+"' ";   
        sql2+= " WHERE ";
        sql2+= " unq='"+unq+"' ";
        

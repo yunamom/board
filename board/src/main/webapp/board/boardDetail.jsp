@@ -66,7 +66,7 @@ text-align:left;
 	<form name="frm" method="post" action="boardWriteSave.jsp">
 	<table class="table">		
 	<colgroup>
-		<col width="25%"/>
+		<col width="15%"/>
 		<col width="*"/>
 	</colgroup>	
 		<tr>
@@ -78,8 +78,7 @@ text-align:left;
 			<td><%=name %></td>
 		</tr>
 		<tr>
-			<th>내용</th>
-			<td style="top:0px; height:250px">
+			<td colspan="2" style="width: 100%; height: 300px; text-align:left;" valign="top">
 			<!-- rows 세로 cols 가로 -->
 			<%=content %>
 			</td>
