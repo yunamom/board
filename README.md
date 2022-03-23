@@ -1,6 +1,7 @@
-# ∙ JSP 게시판 ∙
+# 👉🏻[∙ JSP 게시판 ∙](https://yunamom.duckdns.org/board/main/)<br>
+<img width="1160" alt="Screen Shot 2022-03-23 at 10 55 02 AM" src="https://user-images.githubusercontent.com/91236026/159606426-1dd1f34e-49a2-485c-b07a-3548e4dad2e4.png">
 
-
+## 👩🏻‍💻[ 제작기간 : 2022년 1월 9일 ~ 3월 12일 ] 9주
 
 |board - [게시판]|reBoard - [답변 게시판]|member - [회원관리]|plan - [일정관리]|
 |----------|----------|----------|----------|
